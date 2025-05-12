@@ -28,7 +28,7 @@ O projeto será composto de telas de:
 - Cadastro de horários (professor)
 - Visualização de agenda (professor / aluno)
 - Escolha de modalidades disponíveis (aluno)
-> Adição e exclusão de modalidades aos seus treinos
+- Adição e exclusão de modalidades aos seus treinos
 
 # 🎯 Público-Alvo
 
