@@ -25,7 +25,6 @@ Facilitar o controle financeiro (mensalidades, pagamentos, relatórios).
 
 Donos de academias que desejam otimizar a gestão do negócio.
 Instrutores que precisam acompanhar o progresso dos alunos.
-Alunos (se houver uma área logada) para visualizar treinos e pagamentos.
 
 # 🛠 Tecnologias Utilizadas 
 (Sujeito a alterações)
