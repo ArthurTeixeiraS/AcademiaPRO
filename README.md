@@ -32,5 +32,5 @@ Alunos (se houver uma área logada) para visualizar treinos e pagamentos.
 - React.js + Vite;
 - Styled-Components;
 - React Router DOM;
-- Deploy via Netlify
+- Deploy via Netlify;
 
