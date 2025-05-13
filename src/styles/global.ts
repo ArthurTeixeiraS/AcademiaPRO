@@ -7,7 +7,8 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     html{ 
-    font-size:62.5% !important;
+    // Matemáticamente falando, isso transforma 1rem em 10px
+    font-size:62.5% !important; 
     scroll-behavior: smooth;
 }
     body {
