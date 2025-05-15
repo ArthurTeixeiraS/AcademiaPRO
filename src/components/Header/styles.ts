@@ -9,7 +9,7 @@ export const HeaderContainer = styled.header`
     gap: 0.5rem;
     background-color: transparent;
     z-index: 10;
-    border-bottom: 1px solid ${(props) => props.theme['container-colors']};
+    border-bottom: 1px solid ${(props) => props.theme.colors['container-colors']};
 
     .logo{
         width: 31.3%;
@@ -17,12 +17,10 @@ export const HeaderContainer = styled.header`
 
     .logoName {
         text-decoration: none;
-        color: ${(props) => props.theme['blue-primary']};
+        color: ${(props) => props.theme.colors['blue-primary']};
 
         span {
-            color: ${(props) => props.theme['yellow-secondary']};
+            color: ${(props) => props.theme.colors['yellow-secondary']};
         }
     }
-
-
 `
