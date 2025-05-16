@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
 }
     body {
-        background: ${(props) => props.theme.white}
+        background: ${(props) => props.theme.colors['baby-blue']}
     }
     body, input, textarea, button{
         font-family: 'Montserrat', sans-serif;

@@ -1,6 +1,6 @@
 import { HeaderContainer } from "./styles"
 import { Link } from "react-router-dom"
-import academiaProLogo from '../../assets/react.svg'
+import academiaProLogo from '../../assets/imgAcademiaPRO.png'
 
 export function Header() {
 
@@ -10,8 +10,7 @@ export function Header() {
             <div className="logo">
                 <h1>
                     <Link to={'/'} className="logoName">
-                        <img src={academiaProLogo} width={70} height={70} />
-                        Academia<span>Pro</span>
+                        <img src={academiaProLogo} width={100} height={100} />
                     </Link>
                 </h1>
             </div>              
