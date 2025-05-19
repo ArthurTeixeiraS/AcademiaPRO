@@ -3,12 +3,15 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
       colors: {
-        white: string;
+        background: string;
         black: string;
-        'navy-blue': string;
-        'blue-grotto': string;
-        'green-blue': string;
-        'baby-blue': string;
+        'primary': string;
+        'secondary': string;
+        'success': string;
+        'error': string;
+        'metrics': string;
+        'font-primary': string;
+        'font-secondary': string;
       },
 
       spacing: {
