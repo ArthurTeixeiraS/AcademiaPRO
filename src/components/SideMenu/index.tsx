@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
-import { MenuContainer, MenuHeader, MenuSection, SectionTitle, MenuItem } from './styles';
-import { GiWeightLiftingUp } from "react-icons/gi";
-import { FaUser, FaCalendarAlt } from "react-icons/fa";
+import { 
+  MenuContainer, MenuHeader, MenuSection, 
+  SectionTitle, MenuItem, LogoutButton
+} from './styles';
+import { FaHome } from "react-icons/fa";
+import { FiLogOut } from 'react-icons/fi';
 
 
 export function SideMenu() {
@@ -12,27 +15,38 @@ export function SideMenu() {
         <p>Painel {'{Academia}'}</p>
       </MenuHeader>
 
+      <MenuSection id='homebtn'>
+        <Link to="/DashBoard">
+          <FaHome color='white' size={20}/> 
+          <SectionTitle>Home</SectionTitle>
+        </Link>
+      </MenuSection>
+
       <MenuSection>
         <SectionTitle>Cadastros Básicos</SectionTitle>
         <MenuItem>
           <Link to="/NewUser">
-          <FaUser color='white' size={20}/>
-            Cadastro de Pessoas
+            - Cadastro de Alunos
           </Link>
         </MenuItem>
         <MenuItem>
           <Link to="/NewModality">
-          <GiWeightLiftingUp color='white' size={25} />
-            Cadastro de Modalidades
+            - Cadastro de Modalidades
           </Link>
         </MenuItem>
         <MenuItem>
           <Link to="/NewModality">
-          <FaCalendarAlt color='white' size={20} />
-            Cadastro de Horários
+            - Cadastro de Horários
           </Link>
         </MenuItem>
       </MenuSection>
+
+      <Link to="/">
+          <LogoutButton>
+            <FiLogOut size={18} />
+            <span>Logout</span>
+          </LogoutButton>
+      </Link>
     </MenuContainer>
   );
 }
