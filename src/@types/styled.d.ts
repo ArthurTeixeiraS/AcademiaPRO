@@ -6,6 +6,7 @@ declare module 'styled-components' {
         background: string;
         black: string;
         'primary': string;
+        'primary-hover': string;
         'secondary': string;
         'success': string;
         'error': string;

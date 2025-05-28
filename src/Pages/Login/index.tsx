@@ -1,8 +1,10 @@
-import { Login } from "../../components/Login";
+import { LoginForm } from "../../components/Login";
+import { BackGroundContainer } from "./styles";
 
-export function acesso() {
+export function Login() {
     return (
-        
-        Login()
+        <BackGroundContainer>
+            <LoginForm></LoginForm>
+        </BackGroundContainer>
     )
 }

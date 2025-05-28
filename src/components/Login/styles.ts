@@ -1,45 +1,31 @@
-
 import styled from 'styled-components';
-
-
-export const MenuContainer = styled.div`
-  height: 100vh;
-  background: ${(props) => props.theme.colors.primary};
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 2rem;
-  text-align: center;
-  flex-direction: column;`
-;
 
 export const DivLogin = styled.div`
   background: white;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary};
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  width: 320px;
-  padding: 40px 30px;
+  gap: 1rem;
+  width: 32rem;
+  padding: 4rem 3rem;
   text-align: center;
   flex-direction: column;
   border-radius: 4px; 
+  margin: 1.5rem;
   
   h2 {
-  color: ${(props) => props.theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 1.5rem;
   }`
 
 export const MenuTitle = styled.div`
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.black};
 
   h1 {
     color: ${({ theme }) => theme.colors.secondary};
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
 
   p {
@@ -52,11 +38,19 @@ export const Inputs = styled.input`
    width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 4px;`
+  border-radius: 4px;
+`
 
 export const ButtonLabel = styled.button`
     width: 70px;
-    height: 30 px:
-    background: ${(props) => props.theme.colors.primary}
+    height: 30px;
+    background: ${({ theme }) => theme.colors.primary};
     color: white;
-    align: center;`
+    align-items: center;
+    border-radius: 4px;
+    border: 0;
+
+    &:hover{
+      background: ${({ theme }) => theme.colors['primary-hover']};  
+    }
+`

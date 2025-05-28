@@ -1,11 +1,11 @@
 
-import { MenuContainer, DivLogin,MenuTitle, Inputs, ButtonLabel} from './styles';
+import { DivLogin,MenuTitle, Inputs, ButtonLabel} from './styles';
 
 
-export function Login() {
+export function LoginForm() {
 
     return(
-        <MenuContainer>
+        <>
             <MenuTitle>
                 <h1>{'Seja bem vindo(a) ao'}</h1>
                 <p>AcademiaPRO</p>
@@ -14,8 +14,8 @@ export function Login() {
                 <h2>Acesse:</h2>
                 <Inputs placeholder='Usuário'></Inputs>
                 <Inputs placeholder='Senha' type='password'></Inputs>
-            <ButtonLabel>Acessar</ButtonLabel>
+                <ButtonLabel>Acessar</ButtonLabel>
             </DivLogin>
-        </MenuContainer>
+        </>
     )
 }

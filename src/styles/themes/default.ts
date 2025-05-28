@@ -5,6 +5,7 @@ export const defaultTheme: DefaultTheme = {
         background: '#FFFFFF',
         black: '#2E2E2E',
         'primary': '#081534',
+        'primary-hover':'#010c26',
         'secondary': '#E9ECEF',
         'success': '#198754',
         'error': '#DC3545',
