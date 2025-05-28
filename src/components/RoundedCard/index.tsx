@@ -6,7 +6,7 @@ type CardProps = {
   children: React.ReactNode;
 };
 
-export function RoundedCard({ width = "100px", height = "auto", children }: CardProps) {
+export function RoundedCard({ width = "40rem", height = "40%", children }: CardProps) {
   return (
     <CardContainer $width={width} $height={height}>
       {children}

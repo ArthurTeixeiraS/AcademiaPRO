@@ -17,4 +17,9 @@ export const CardContainer = styled.div<{
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   }
+
+  p{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
 `;

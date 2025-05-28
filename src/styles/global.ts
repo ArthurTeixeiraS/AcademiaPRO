@@ -11,9 +11,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size:62.5% !important; 
     scroll-behavior: smooth;
 }
-    body {
-        background: ${(props) => props.theme.colors['baby-blue']}
-    }
     body, input, textarea, button{
         font-family: 'Montserrat', sans-serif;
         font-weight:  400;
