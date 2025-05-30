@@ -9,9 +9,12 @@ export function DashBoard(){
             <TopBar></TopBar>
             <SideMenu></SideMenu>
             <MainContentContainer>
-                <RoundedCard>
-                    <h1>Bem vindo, {'{Usuário}'}</h1>
+                <RoundedCard width="95%" height="20%">
+                    <h1>Bem vindo, Professor</h1>
                     <p>Nesse Dashboard, estão disponíveis dados rápidos e atalhos para suas funções preferidas!</p>
+                </RoundedCard>
+                <RoundedCard>
+
                 </RoundedCard>
             </MainContentContainer>
         </Container>

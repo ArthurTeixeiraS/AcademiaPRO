@@ -11,8 +11,8 @@ export function SideMenu() {
   return (
     <MenuContainer>
       <MenuHeader>
-        <h2>{'{Usuário}'}</h2>
-        <p>Painel {'{Academia}'}</p>
+        <h2>João Silva</h2>
+        <p>Painel do Professor</p>
       </MenuHeader>
 
       <MenuSection id='homebtn'>

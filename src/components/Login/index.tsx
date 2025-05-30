@@ -1,8 +1,17 @@
 
-import { DivLogin,MenuTitle, Inputs, ButtonLabel} from './styles';
+import { useNavigate } from 'react-router-dom';
+import { DivLogin,MenuTitle, Inputs, ButtonLabel, ExtraContainer} from './styles';
+import { useState } from 'react';
 
 
 export function LoginForm() {
+    const navigate = useNavigate()
+
+    const handleLogin = () => {
+        navigate('/Dashboard')
+    }
+
+    const [showPassword, setShowPassword] = useState(false);
 
     return(
         <>
@@ -10,11 +19,24 @@ export function LoginForm() {
                 <h1>{'Seja bem vindo(a) ao'}</h1>
                 <p>AcademiaPRO</p>
             </MenuTitle>
-            <DivLogin>
+            <DivLogin onSubmit={handleLogin}>  
                 <h2>Acesse:</h2>
-                <Inputs placeholder='Usuário'></Inputs>
-                <Inputs placeholder='Senha' type='password'></Inputs>
-                <ButtonLabel>Acessar</ButtonLabel>
+                <Inputs required placeholder='Usuário'></Inputs>
+                <Inputs 
+                    required 
+                    placeholder='Senha' 
+                    type={showPassword ? 'text' : 'password'}
+                    id='passwordInput'>
+                </Inputs>
+                <ExtraContainer className="extraContainer">
+                    <input 
+                        type="checkbox" 
+                        name="showPassword"
+                        onChange={() => setShowPassword(!showPassword)}
+                    />
+                    <label htmlFor="showPassword">Exibir senha</label>
+                </ExtraContainer>
+                <ButtonLabel type='submit'>Acessar</ButtonLabel>
             </DivLogin>
         </>
     )

@@ -12,9 +12,5 @@ export const defaultTheme: DefaultTheme = {
         'metrics' : '#0D6EFD',
         'font-primary': '#212529',
         'font-secondary': '#6C757D',
-      },
-    spacing: {
-        headerPadding: "0.7rem 0.4rem 3rem",
-        gap: "0.5rem"
-  }
+      }
 };

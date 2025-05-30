@@ -14,6 +14,6 @@ export const GlobalStyle = createGlobalStyle`
     body, input, textarea, button{
         font-family: 'Montserrat', sans-serif;
         font-weight:  400;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 `

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DivLogin = styled.div`
+export const DivLogin = styled.form`
   background: white;
   color: ${({ theme }) => theme.colors.primary};
   display: flex;
@@ -53,4 +53,20 @@ export const ButtonLabel = styled.button`
     &:hover{
       background: ${({ theme }) => theme.colors['primary-hover']};  
     }
+`
+
+export const ExtraContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input[type='checkbox']{
+    margin: 0.3rem;
+    accent-color: ${({ theme }) => theme.colors.primary};
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
+  
 `

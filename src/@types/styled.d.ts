@@ -13,11 +13,6 @@ declare module 'styled-components' {
         'metrics': string;
         'font-primary': string;
         'font-secondary': string;
-      },
-
-      spacing: {
-        headerPadding : string;
-        gap: string 
       }
   }
 }
