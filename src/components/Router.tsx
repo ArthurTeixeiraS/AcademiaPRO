@@ -4,6 +4,8 @@ import { Login } from '../Pages/Login'
 import { Schedule } from '../Pages/Schedule'
 import { NewSchedule } from '../Pages/NewSchedule'
 import { MainUsers } from '../Pages/Users'
+import { NewUser } from '../Pages/NewUser'
+
 
 export function Router(){
     return(
@@ -14,6 +16,7 @@ export function Router(){
                 <Route path='/schedule' element={<Schedule/>}/>
                 <Route path='/newschedule' element={<NewSchedule/>}/>
                 <Route path='/users' element={<MainUsers/>}/>
+                <Route path='/newuser' element={<NewUser/>}/>
             </Routes>
         </>
     )
