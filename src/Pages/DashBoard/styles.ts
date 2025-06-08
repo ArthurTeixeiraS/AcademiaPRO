@@ -13,5 +13,21 @@ export const MainContentContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 82%;
-  height: 90vh;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+
+  //Isso é pra estilizar o Scroll bar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.secondary};
+    border-radius: 4px;
+  }
+
+  @media (max-width: 1609px) {
+     grid-template-columns: repeat(1, 1fr); 
+     left: 30rem;
+  }
 `

@@ -9,12 +9,17 @@ export function DashBoard(){
             <TopBar></TopBar>
             <SideMenu></SideMenu>
             <MainContentContainer>
-                <RoundedCard width="95%" height="20%">
+                <RoundedCard width="95%" height="16.8rem" backgroundColor="#081534" color="#ffffff">
                     <h1>Bem vindo, Professor</h1>
                     <p>Nesse Dashboard, estão disponíveis dados rápidos e atalhos para suas funções preferidas!</p>
                 </RoundedCard>
-                <RoundedCard>
-
+                <RoundedCard width="95%" height="16.8rem" backgroundColor="#ffffff" color="#081534">
+                    <h1>Bem vindo, Professor</h1>
+                    <p>Nesse Dashboard, estão disponíveis dados rápidos e atalhos para suas funções preferidas!</p>
+                </RoundedCard>
+                <RoundedCard width="95%" height="16.8rem" backgroundColor="#ffffff" color="#081534">
+                    <h1>Bem vindo, Professor</h1>
+                    <p>Nesse Dashboard, estão disponíveis dados rápidos e atalhos para suas funções preferidas!</p>
                 </RoundedCard>
             </MainContentContainer>
         </Container>
