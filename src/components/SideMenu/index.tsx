@@ -25,18 +25,18 @@ export function SideMenu() {
       <MenuSection>
         <SectionTitle>Cadastros Básicos</SectionTitle>
         <MenuItem>
-          <Link to="/NewUser">
-            - Cadastro de Alunos
+          <Link to="/Users">
+            - Alunos
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/NewModality">
-            - Cadastro de Modalidades
+          <Link to="/Modalitys"> 
+            - Modalidades
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/NewModality">
-            - Cadastro de Horários
+          <Link to="/Schedule">
+            - Agendamentos
           </Link>
         </MenuItem>
       </MenuSection>

@@ -5,7 +5,11 @@ import {
  } from './styles';
 import { useNavigate } from 'react-router-dom';
 
-export function TopBar() {
+interface Props {
+  placeholder?: string;
+}
+
+export function TopBar({placeholder= "Pesquisar..."}: Props) {
   const navigate = useNavigate();
 
   const backToLogin = () => {
@@ -16,7 +20,7 @@ export function TopBar() {
         {/* Wrapper = "Agrupador" */}
       <SearchWrapper>
         <FiSearch size={20} />
-        <SearchInput placeholder="Pesquisar..." />
+        <SearchInput placeholder={placeholder} />
       </SearchWrapper>
 
 
