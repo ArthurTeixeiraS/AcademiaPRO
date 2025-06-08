@@ -1,6 +1,7 @@
 
 import { useNavigate } from 'react-router-dom';
-import { DivLogin,MenuTitle, Inputs, ButtonLabel, ExtraContainer} from './styles';
+import { DivLogin,MenuTitle, ExtraContainer} from './styles';
+import {Inputs, ButtonLabel,} from '../styles'
 import { useState } from 'react';
 
 

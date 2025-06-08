@@ -30,13 +30,13 @@ export function SideMenu() {
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/NewModality">
+          <Link to="/NewModality"> 
             - Cadastro de Modalidades
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/NewModality">
-            - Cadastro de Horários
+          <Link to="/Schedule">
+            - Agendamentos
           </Link>
         </MenuItem>
       </MenuSection>
