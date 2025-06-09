@@ -12,6 +12,7 @@ export function MainSchedule() {
 
   return (
     <>
+      {/* Pendente */}
       <DivHeader>
         <h1>Gerenciar Agendamentos</h1>
         <ButtonLabel onClick={newSchedule}>+ Novo Agendamento</ButtonLabel>

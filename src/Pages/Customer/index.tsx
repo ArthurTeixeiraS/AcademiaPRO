@@ -1,11 +1,11 @@
 
 import { SideMenu } from "../../components/SideMenu";
 import { TopBar } from "../../components/TopBar";
-import { Customer } from "../../components/User";   
+import { Customer } from "../../components/Customer";   
 import { Container } from "../../components/utils/generic";
 
 
-export function MainUsers() {
+export function Customers() {
     return(
         <Container>
             <SideMenu></SideMenu>

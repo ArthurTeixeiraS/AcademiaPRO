@@ -9,6 +9,7 @@ import { FiLogOut } from 'react-icons/fi';
 
 export function SideMenu() {
   return (
+    // Revisar caso algo possa ser reutilizado
     <MenuContainer>
       <MenuHeader>
         <h2>João Silva</h2>
@@ -25,7 +26,7 @@ export function SideMenu() {
       <MenuSection>
         <SectionTitle>Cadastros Básicos</SectionTitle>
         <MenuItem>
-          <Link to="/Users">
+          <Link to="/Customers">
             - Alunos
           </Link>
         </MenuItem>

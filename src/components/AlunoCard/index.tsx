@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { ButtonLabel } from "../Login/styles";
 import { CardInfo, ButtonRow } from "./styles";
 import { alunos } from "../../@types/aluno";
 import { RoundedCard } from "../RoundedCard";
+import { ButtonLabel } from "../utils/styleButton";
 
 export function AlunosCard() {
     const navigate = useNavigate();

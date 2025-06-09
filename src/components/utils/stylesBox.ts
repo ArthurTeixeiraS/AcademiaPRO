@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+//Revisar isso aqui (onde é usado e pra que);
 export const DivBox = styled.div`  
   max-width: 100%; 
   padding: 20px;

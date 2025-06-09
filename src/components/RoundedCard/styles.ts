@@ -28,11 +28,9 @@ export const CardContainer = styled.div<{
 
   @media (max-width: 1609px) {
      width: 90%;
-     height: 20rem;
   }
 
   @media (max-width: 1260px) {
      width: 80%;
-     height: 20rem;
   }
 `;

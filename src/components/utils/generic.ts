@@ -8,7 +8,7 @@ export const Container = styled.div`
   justify-content: center;
 `
 
-// Esse container é para telas de cadastro ou alteração, pois possui um fundo escuro
+// Esse container é para telas de login, pois possui um fundo escuro para contraste
 export const BackGroundContainer = styled.div`
   height: 100vh;
   background: ${({ theme }) => theme.colors.primary};
@@ -21,6 +21,52 @@ export const BackGroundContainer = styled.div`
   text-align: center;
   flex-direction: column;`
 ;
+
+// Esse é o formulário padrão e genérico do Projeto
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column; 
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  color: ${({ theme }) => theme.colors.primary};
+
+  label{
+    font-size: 1.4rem;
+    color: ${({ theme }) => theme.colors["font-primary"]};
+    margin-bottom: 0.2rem;
+  }
+
+  input{
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1.3rem;
+    border: 1px solid ${({ theme }) => theme.colors.black};
+    border-radius: 6px;      
+  }
+
+  .optionBox{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #333;
+    }
+  }
+
+  .optionBox.active {
+    border-color: #333; 
+    background-color: #e6f0ff; 
+  }
+
+  .multipleButtons{
+    justify-content: space-evenly;   
+  }
+`;
 
 // Esse é o container onde vai ficar o conteúdo principal da pagina
 export const MainContentContainer = styled.div<{

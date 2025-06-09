@@ -9,6 +9,7 @@ interface Props {
   placeholder?: string;
 }
 
+// Revisar os componentes, pra ver se algo pode ser reutilizado
 export function TopBar({placeholder= "Pesquisar..."}: Props) {
   const navigate = useNavigate();
 

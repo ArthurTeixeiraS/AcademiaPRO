@@ -9,6 +9,7 @@ export function DashBoard(){
         <Container>
             <TopBar></TopBar>
             <SideMenu></SideMenu>
+            {/* Revisar / Preciso adicionar mais conteúdos no dashboard */}
             <MainContentContainer $repeatColumns={2}>
                 <RoundedCard width="95%" height="16.8rem" backgroundColor="#081534" color="#ffffff">
                     <h1>Bem vindo, Professor</h1>

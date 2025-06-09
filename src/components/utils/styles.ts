@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
-export const BodyContainer = styled.div`
-  background: linear-gradient(to bottom right, #f5f7ff, #f0fff8); 
-`
-
+//Só usado na Schedule
 export const Inputs = styled.input`
   padding: 10px;
   border-radius: 8px;
@@ -11,12 +8,7 @@ export const Inputs = styled.input`
   width: 200px;
 `
 
-export const Filter = styled.div`
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-`
-
+//Só usado na Schedule
 export const DivHeader = styled.div`
   display: flex;
   justify-content: space-between;
