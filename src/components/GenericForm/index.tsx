@@ -1,6 +1,6 @@
 import {FormContainer, Title, Field, Label, Input, OptionBox} from './style';
 import type {GenericFormProps} from './style';
-import { ButtonGroup, ButtonLabel} from '../ui/styleButton'
+import { ButtonGroup, ButtonLabel} from '../utils/styleButton'
 
 
 export function GenericForm({ title, fields, options, onSubmit }: GenericFormProps) {

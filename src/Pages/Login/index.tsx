@@ -1,5 +1,5 @@
 import { LoginForm } from "../../components/Login";
-import { BackGroundContainer } from "./styles";
+import { BackGroundContainer } from "../../components/utils/generic";
 
 export function Login() {
     return (

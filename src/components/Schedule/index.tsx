@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { BodyContainer, Container, Inputs, DivHeader } from "../ui/styles";
-import { ButtonLabel} from '../ui/styleButton'
-import { DivBox, ClassBox } from '../ui/stylesBox';
+import { Inputs, DivHeader } from "../utils/styles";
+import { ButtonLabel} from '../utils/styleButton'
+import { Container } from "../utils/generic";
 
 export function MainSchedule() {
   const navigate = useNavigate();

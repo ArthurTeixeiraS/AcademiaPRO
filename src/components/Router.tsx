@@ -3,7 +3,7 @@ import { DashBoard } from '../Pages/DashBoard'
 import { Login } from '../Pages/Login'
 import { Schedule } from '../Pages/Schedule'
 import { NewSchedule } from '../Pages/NewSchedule'
-import { MainUsers } from '../Pages/Users'
+import { MainUsers } from '../Pages/Customer'
 import { NewUser } from '../Pages/NewUser'
 
 
