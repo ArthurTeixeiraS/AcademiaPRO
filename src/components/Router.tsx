@@ -6,6 +6,8 @@ import { NewSchedule } from '../Pages/NewSchedule'
 import { Customers } from '../Pages/Customer'
 import { NewCustomer } from '../Pages/NewCustomer'
 import { NewModality } from '../Pages/NewModality'
+import { EditCostumerUser } from '../Pages/EditCostumer'
+
 
 export function Router(){
     return(
@@ -18,6 +20,8 @@ export function Router(){
                 <Route path='/Customers' element={<Customers/>}/>
                 <Route path='/newcustomer' element={<NewCustomer/>}/>
                 <Route path='/newModality' element={<NewModality/>}/>
+                <Route path="/EditCustomer/:id" element={<EditCostumerUser/>} />
+
             </Routes>
         </>
     )

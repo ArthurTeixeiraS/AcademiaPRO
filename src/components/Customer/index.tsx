@@ -14,7 +14,7 @@ export function Customer() {
             <div className="notFoundUser">
               <h2>Não encontrou?</h2>
               <CardInfo>Cadastre um novo aluno!</CardInfo>
-              <Link to="/newuser">
+              <Link to="/newcustomer">
                   <ButtonLabel>Novo aluno</ButtonLabel>
               </Link>
             </div>

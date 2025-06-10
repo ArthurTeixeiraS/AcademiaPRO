@@ -31,7 +31,7 @@ export function AlunosCard() {
                     </CardInfo>
 
                     <ButtonRow>
-                        <ButtonLabel onClick={() => navigate(`/EditUser/${aluno.id}`)}>Editar</ButtonLabel>
+                        <ButtonLabel onClick={() => navigate(`/EditCustomer/${aluno.id}`)}>Editar</ButtonLabel>
                     </ButtonRow>
                 </RoundedCard>
             ))}

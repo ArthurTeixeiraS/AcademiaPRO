@@ -3,6 +3,7 @@ export type FormField = {
   name: string;
   type?: 'text' | 'email' | 'tel';
   placeholder?: string;
+  value?: string;
 };
 
 export type Option = {
@@ -15,5 +16,8 @@ export type GenericFormProps = {
   title: string;
   fields: FormField[];
   options?: Option[];
+  value?: string;
   onSubmit: (data: Record<string, string>) => void;
+  selectedOption?: string;
 };
+
