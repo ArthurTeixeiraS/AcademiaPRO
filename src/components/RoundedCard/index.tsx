@@ -5,6 +5,7 @@ type CardProps = {
   height?: string;
   backgroundColor?: string;
   color?: string;
+  isLarge?: boolean;
   children: React.ReactNode;
 };
 
@@ -14,6 +15,7 @@ export function RoundedCard({
     height = "40%", 
     backgroundColor = '#fffffff', 
     color = '#000000', 
+    isLarge = false,
     children }: CardProps
   ) {
   return (
@@ -22,6 +24,7 @@ export function RoundedCard({
         $height={height} 
         $backgroundColor={backgroundColor} 
         $color={color}
+        $isLarge={isLarge}
     >
       {children}
     </CardContainer>

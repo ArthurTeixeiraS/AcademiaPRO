@@ -10,7 +10,7 @@ export function Customer() {
   return (
       <MainContentContainer $repeatColumns={4}> 
         <AlunosCard></AlunosCard>
-        <RoundedCard width="30rem" height="22rem">
+        <RoundedCard width="30rem" height="22rem" isLarge={false}>
             <div className="notFoundUser">
               <h2>Não encontrou?</h2>
               <CardInfo>Cadastre um novo aluno!</CardInfo>

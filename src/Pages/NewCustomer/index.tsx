@@ -1,7 +1,7 @@
 import { RoundedCard } from "../../components/RoundedCard";
 import { SideMenu } from "../../components/SideMenu";
 import { TopBar } from "../../components/TopBar";
-import { MainContentContainer } from "../../components/utils/generic";
+import { FlexibleContentContainer } from "../../components/utils/generic";
 import { GenericForm } from "../../components/utils/GenericForm";
 
 export function NewCustomer() {
@@ -9,8 +9,7 @@ export function NewCustomer() {
     <>
       <SideMenu/>
       <TopBar/>
-      {/* Revisar / Preciso Criar um novo Container para telas de cadastro que terão apenas um form centralizado */}
-      <MainContentContainer $repeatColumns={1}>
+      <FlexibleContentContainer>
           <RoundedCard width="45rem" height="50rem">
             <GenericForm
               title="Cadastrar Novo Aluno"
@@ -28,7 +27,7 @@ export function NewCustomer() {
               onSubmit={(data) => console.log('Aluno cadastrado:', data)}
             />
           </RoundedCard>
-      </MainContentContainer>
+      </FlexibleContentContainer>
     </>
   );
 }

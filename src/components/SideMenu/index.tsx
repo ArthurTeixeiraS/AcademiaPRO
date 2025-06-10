@@ -9,12 +9,12 @@ import { FiLogOut } from 'react-icons/fi';
 
 export function SideMenu() {
   return (
-    // Revisar caso algo possa ser reutilizado
+    //Revisar - Dar uma analisada pra tentar enxugar esse componente
     <MenuContainer>
       <MenuHeader>
-        <h2>João Silva</h2>
-        <p>Painel do Professor</p>
-      </MenuHeader>
+        <h2>Fulano de tal</h2>
+        <p>Painel AcademiaPRO</p>
+      </MenuHeader> 
 
       <MenuSection id='homebtn'>
         <Link to="/DashBoard">

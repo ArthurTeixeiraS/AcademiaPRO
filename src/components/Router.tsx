@@ -6,7 +6,7 @@ import { NewSchedule } from '../Pages/NewSchedule'
 import { Customers } from '../Pages/Customer'
 import { NewCustomer } from '../Pages/NewCustomer'
 import { NewModality } from '../Pages/NewModality'
-import { EditCostumerUser } from '../Pages/EditCostumer'
+import { EditCustomerUser } from '../Pages/EditCostumer'
 
 
 export function Router(){
@@ -20,8 +20,7 @@ export function Router(){
                 <Route path='/Customers' element={<Customers/>}/>
                 <Route path='/newcustomer' element={<NewCustomer/>}/>
                 <Route path='/newModality' element={<NewModality/>}/>
-                <Route path="/EditCustomer/:id" element={<EditCostumerUser/>} />
-
+                <Route path="/EditCustomer/:id" element={<EditCustomerUser/>} />
             </Routes>
         </>
     )

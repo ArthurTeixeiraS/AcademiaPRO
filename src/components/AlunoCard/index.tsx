@@ -9,7 +9,7 @@ export function AlunosCard() {
     return (
         <>
             {alunos.map((aluno) => (
-                <RoundedCard width="30rem" height="22rem" key={aluno.id}>
+                <RoundedCard width="30rem" height="22rem" key={aluno.id} isLarge={false}>
                     <div>
                         <h2>{aluno.nome}</h2>
                     </div>  

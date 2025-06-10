@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MenuContainer = styled.aside`
-  width: 280px;
+  width: 28rem;
   height: 100vh;
   background: ${(props) => props.theme.colors.primary};
   padding: 3.5rem;
@@ -11,7 +11,7 @@ export const MenuContainer = styled.aside`
   top: 0;
 
   #homebtn{
-    margin-bottom: -1rem ;
+    margin-bottom: -1.9rem ;
   }
 `;
 
