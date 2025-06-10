@@ -5,6 +5,7 @@ export const CardContainer = styled.div<{
   $height: string;
   $color: string;
   $backgroundColor: string;
+  $isLarge: boolean;
 }>`
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
@@ -24,13 +25,23 @@ export const CardContainer = styled.div<{
   p{
     font-size: 1.5rem;
     margin-top: 1rem;
+  } 
+
+  .margin{
+    margin-top: 1.5rem;
   }
 
   @media (max-width: 1609px) {
-     width: 90%;
+     width: ${props => props.$isLarge ? '90%' : props.$width};
   }
 
   @media (max-width: 1260px) {
-     width: 80%;
+     width: ${props => props.$isLarge ? '80%' : props.$width};
+     height: ${props => props.$isLarge ? '25%' : props.$height};;
+  }
+
+  @media (max-width: 970px) {
+     width: ${props => props.$isLarge ? '60%' : props.$width};
+     height: ${props => props.$isLarge ? '28%' : props.$height};
   }
 `;

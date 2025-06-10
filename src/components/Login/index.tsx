@@ -8,10 +8,14 @@ import { BackGroundContainer, Form } from '../utils/generic';
 export function LoginForm() {
     const navigate = useNavigate()
 
-    const handleLogin = () => {
-        navigate('/Dashboard')
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault();
+        if(username.trim()){
+            localStorage.setItem('username', username.trim())
+            navigate('/Dashboard')
+        }
     }
-
+    const [username, setUsername] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
     return(
@@ -26,6 +30,7 @@ export function LoginForm() {
                     <input 
                         required 
                         placeholder='Usuário'
+                        onChange={(e) => setUsername(e.target.value)}
                         type='text'>
                     </input>
                     <input 

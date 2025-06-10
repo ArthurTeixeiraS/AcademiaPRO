@@ -21,14 +21,13 @@ export const ExtraContainer = styled.div`
   justify-content: center;
 
   input[type='checkbox']{
-    margin: 0.3rem;
     accent-color: ${({ theme }) => theme.colors.primary};
     width: 5%;
   }
 
   .showPassword {
     font-size: 1.2rem;
-    margin: 0;
+    margin: 0.5rem;
   }
   
 `

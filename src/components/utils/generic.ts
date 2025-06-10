@@ -6,6 +6,10 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1750px){
+    flex-direction: row;
+  }
 `
 
 // Esse container é para telas de login, pois possui um fundo escuro para contraste
@@ -66,6 +70,88 @@ export const Form = styled.form`
   .multipleButtons{
     justify-content: space-evenly;   
   }
+
+  .error {
+    color: #dc3545;
+    font-size: 1.2rem;
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  .optionBox {
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .optionBox.active {
+    border-color: #0d6efd;
+    background-color: #e7f1ff;
+  }
+`;
+
+export const FlexibleContentContainer = styled.div`
+  position: fixed;
+  left: 32rem;
+  top: 10rem;
+  display: flex;
+  align-items: top;
+  width: 82%;
+  height: calc(100vh - 8rem);
+  overflow-y: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .rowSection{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-direction: row;
+    width: 96.5%;
+    height: 10vh;
+
+    @media (max-width: 1609px){
+      width: 91.5%;
+    }
+
+    @media (max-width: 1260px){
+      width: 81.5%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr)
+    }
+    
+    @media (max-width: 970px) { 
+      width: 63%;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  //Isso é pra estilizar o Scroll bar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.secondary};
+    border-radius: 4px;
+  }
+`
+
+export const SearchInput = styled.input`
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  width: 300px;
+  color: ${({ theme }) => theme.colors.primary};
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 // Esse é o container onde vai ficar o conteúdo principal da pagina
@@ -93,8 +179,15 @@ export const MainContentContainer = styled.div<{
   }
 
   @media (max-width: 1609px) {
-     grid-template-columns: repeat(1, 1fr); 
+     grid-template-columns: repeat(3, 1fr); 
      left: 30rem;
+  }
+  @media (max-width: 1350px) {
+     grid-template-columns: repeat(2, 1fr); 
+  }
+  @media (max-width: 1042px) {
+     grid-template-columns: repeat(1, 1fr); 
+     left: 40rem;
   }
 `
 

@@ -1,29 +1,35 @@
 import { RoundedCard } from "../../components/RoundedCard";
 import { SideMenu } from "../../components/SideMenu";
 import { TopBar } from "../../components/TopBar";
-import { Container } from "../../components/utils/generic";
-import { MainContentContainer } from "../../components/utils/generic";
+import { FlexibleContentContainer } from "../../components/utils/generic";
 
 export function DashBoard(){
+    const username = localStorage.getItem('username');
+
     return (
-        <Container>
+        <>
             <TopBar></TopBar>
             <SideMenu></SideMenu>
-            {/* Revisar / Preciso adicionar mais conteúdos no dashboard */}
-            <MainContentContainer $repeatColumns={2}>
-                <RoundedCard width="95%" height="16.8rem" backgroundColor="#081534" color="#ffffff">
-                    <h1>Bem vindo, Professor</h1>
+            <FlexibleContentContainer>
+                <RoundedCard width="47%" height="10%" isLarge={true}>
+                    <h1>Bem vindo, {username}</h1>
                     <p>Nesse Dashboard, estão disponíveis dados rápidos e atalhos para suas funções preferidas!</p>
-                </RoundedCard>
-                <RoundedCard width="95%" height="16.8rem" backgroundColor="#ffffff" color="#081534">
-                    <h1>Bem vindo, Professor</h1>
-                    <p>Nesse Dashboard, estão disponíveis dados rápidos e atalhos para suas funções preferidas!</p>
-                </RoundedCard>
-                <RoundedCard width="95%" height="16.8rem" backgroundColor="#ffffff" color="#081534">
-                    <h1>Bem vindo, Professor</h1>
-                    <p>Nesse Dashboard, estão disponíveis dados rápidos e atalhos para suas funções preferidas!</p>
-                </RoundedCard>
-            </MainContentContainer>
-        </Container>
+                </RoundedCard> 
+                <div className="rowSection">
+                    <RoundedCard width="95%" height="100%">
+                    <></>
+                    </RoundedCard>
+                    <RoundedCard width="95%" height="100%">
+                    <></>
+                    </RoundedCard>
+                    <RoundedCard width="95%" height="100%">
+                    <></>
+                    </RoundedCard>
+                    <RoundedCard width="95%" height="100%">
+                    <></>
+                    </RoundedCard>
+                </div>
+            </FlexibleContentContainer>
+        </>
     )
 }

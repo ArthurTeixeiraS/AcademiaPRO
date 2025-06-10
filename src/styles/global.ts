@@ -16,4 +16,8 @@ export const GlobalStyle = createGlobalStyle`
         font-weight:  400;
         font-size: 1.2rem;
     }
+
+    a {
+        text-decoration: none;
+    }
 `

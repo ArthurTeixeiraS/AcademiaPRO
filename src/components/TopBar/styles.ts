@@ -13,34 +13,18 @@ export const TopBarContainer = styled.header`
   left: 28rem;
   right: 0;
   z-index: 100;
-`;
 
-export const SearchWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
-export const SearchInput = styled.input`
-  border: none;
-  background: transparent;
-  font-size: 1.5rem;
-  width: 300px;
-  color: ${({ theme }) => theme.colors.primary};
-
-  &:focus {
-    outline: none;
+  .iconWrapper{
+    display: flex;
+    gap: 1.5rem;
   }
 
-  &::placeholder {
+  .searchWrapper{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     color: ${({ theme }) => theme.colors.primary};
   }
-`;
-
-export const IconsWrapper = styled.div`
-  display: flex;
-  gap: 1.5rem;
 `;
 
 export const IconButton = styled.button`

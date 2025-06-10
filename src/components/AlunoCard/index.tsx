@@ -1,37 +1,46 @@
 import { useNavigate } from "react-router-dom";
 import { CardInfo, ButtonRow } from "./styles";
-import { alunos } from "../../@types/aluno";
 import { RoundedCard } from "../RoundedCard";
 import { ButtonLabel } from "../utils/styleButton";
+import { getCustomersFromLocalStorage } from "../utils/localStorageUtils";
 
-export function AlunosCard() {
+export function CustomerCard() {
+    const customers = getCustomersFromLocalStorage()
     const navigate = useNavigate();
+
+    const formatPlano = (plano: string): string => {
+        switch (plano.toLowerCase()) {
+            case 'basico':
+                return 'Básico';
+            case 'premium':
+                return 'Premium';
+            default:
+                return plano;
+        }
+    };
     return (
         <>
-            {alunos.map((aluno) => (
-                <RoundedCard width="30rem" height="22rem" key={aluno.id}>
+            {customers.map((customer) => (
+                <RoundedCard width="30rem" height="22rem" key={customer.id} isLarge={false}>
                     <div>
-                        <h2>{aluno.nome}</h2>
+                        <h2>{customer.nome}</h2>
                     </div>  
 
                     <CardInfo>
                         <span>📧</span> 
-                        {aluno.email}
+                        {customer.email}
                     </CardInfo>
                     <CardInfo>
                         <span>📞</span> 
-                        {aluno.telefone}
+                        {customer.telefone}
                     </CardInfo>
                     <CardInfo>
                         <span>📅</span> 
-                        Matrícula: {aluno.matricula}
-                    </CardInfo>
-                    <CardInfo>
-                        <strong>{aluno.plano}</strong>
+                        Matrícula: <strong>{formatPlano(customer.plano)}</strong>
                     </CardInfo>
 
                     <ButtonRow>
-                        <ButtonLabel onClick={() => navigate(`/EditUser/${aluno.id}`)}>Editar</ButtonLabel>
+                        <ButtonLabel onClick={() => navigate(`/EditCustomer/${customer.id}`)}>Editar</ButtonLabel>
                     </ButtonRow>
                 </RoundedCard>
             ))}

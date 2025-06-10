@@ -1,7 +1,7 @@
 import { RoundedCard } from "../RoundedCard"
 import { useState } from "react";
 import { Title, Button } from "./styles";
-import { MainContentContainer } from "../utils/generic";
+import { FlexibleContentContainer } from "../utils/generic";
 import { Form } from "../utils/generic";
 
 export function NewModalityForm() {
@@ -17,10 +17,8 @@ export function NewModalityForm() {
     };
 
     return (
-        // Pendente/Revisar -> Tem que achar alguma forma de centralizar isso em relação ao "mainContainer"
-        // Acho que consigo resolver criando um Container genérico de display flex
-        <MainContentContainer $repeatColumns={1}>
-        <RoundedCard width="40rem" height="26rem">
+        <FlexibleContentContainer>
+        <RoundedCard width="40rem" height="26rem" isLarge={false}>
           <Title>Cadastro de Modalidade</Title>
           <Form onSubmit={handleSubmit}>
             <div>
@@ -43,6 +41,6 @@ export function NewModalityForm() {
             <Button type="submit">Cadastrar</Button>
           </Form>
         </RoundedCard>
-      </MainContentContainer>
+      </FlexibleContentContainer>
     )
 }
