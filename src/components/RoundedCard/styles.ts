@@ -25,6 +25,10 @@ export const CardContainer = styled.div<{
   p{
     font-size: 1.5rem;
     margin-top: 1rem;
+  } 
+
+  .margin{
+    margin-top: 1.5rem;
   }
 
   @media (max-width: 1609px) {

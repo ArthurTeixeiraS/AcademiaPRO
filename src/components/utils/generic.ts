@@ -70,6 +70,26 @@ export const Form = styled.form`
   .multipleButtons{
     justify-content: space-evenly;   
   }
+
+  .error {
+    color: #dc3545;
+    font-size: 1.2rem;
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  .optionBox {
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .optionBox.active {
+    border-color: #0d6efd;
+    background-color: #e7f1ff;
+  }
 `;
 
 export const FlexibleContentContainer = styled.div`

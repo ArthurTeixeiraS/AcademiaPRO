@@ -1,10 +1,39 @@
+import React, { useState } from "react";
 import { RoundedCard } from "../../components/RoundedCard";
 import { SideMenu } from "../../components/SideMenu";
 import { TopBar } from "../../components/TopBar";
 import { FlexibleContentContainer } from "../../components/utils/generic";
 import { GenericForm } from "../../components/utils/GenericForm";
+import type { Customer } from "../../@types/customer";
+import { saveCustomerToLocalStorage } from "../../components/utils/localStorageUtils";
 
 export function NewCustomer() {
+
+  //Esse "Omit" serve pra omitir um atributo de um determinado type, nesse caso o "id"
+  const [customer, setCustomer] = useState<Omit<Customer, 'id'>>({
+    nome: '',
+    email: '',
+    telefone: '',
+    plano: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { name, value } = e.target;
+      setCustomer(prev => ({ ...prev, [name]: value }));
+  } 
+
+  const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+
+      const newCustomer: Customer = {
+        ...customer,
+        id: ''
+      };
+
+      saveCustomerToLocalStorage(newCustomer);
+      setCustomer({nome: '', email: '', telefone: '', plano: '',}) 
+  }
+
   return (
     <>
       <SideMenu/>
@@ -24,7 +53,8 @@ export function NewCustomer() {
                 { title: 'Plano Básico', description: 'Acesso limitado às modalidades', value: 'basico' },
                 { title: 'Plano Premium', description: 'Acesso completo a todas as modalidades', value: 'premium' },
               ]}
-              onSubmit={(data) => console.log('Aluno cadastrado:', data)}
+              onSubmit={handleSubmit}
+              onChange={handleChange}
             />
           </RoundedCard>
       </FlexibleContentContainer>

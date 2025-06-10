@@ -4,13 +4,15 @@ import { TopBar } from "../../components/TopBar";
 import { FlexibleContentContainer } from "../../components/utils/generic";
 
 export function DashBoard(){
+    const username = localStorage.getItem('username');
+
     return (
         <>
             <TopBar></TopBar>
             <SideMenu></SideMenu>
             <FlexibleContentContainer>
                 <RoundedCard width="47%" height="10%" isLarge={true}>
-                    <h1>Bem vindo, Professor</h1>
+                    <h1>Bem vindo, {username}</h1>
                     <p>Nesse Dashboard, estão disponíveis dados rápidos e atalhos para suas funções preferidas!</p>
                 </RoundedCard> 
                 <div className="rowSection">

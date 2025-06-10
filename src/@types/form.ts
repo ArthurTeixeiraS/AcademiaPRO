@@ -17,7 +17,7 @@ export type GenericFormProps = {
   fields: FormField[];
   options?: Option[];
   value?: string;
-  onSubmit: (data: Record<string, string>) => void;
-  selectedOption?: string;
+  onSubmit: (e: React.FormEvent) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 };
 

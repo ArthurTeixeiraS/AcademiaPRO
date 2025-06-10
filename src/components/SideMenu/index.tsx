@@ -8,11 +8,12 @@ import { FiLogOut } from 'react-icons/fi';
 
 
 export function SideMenu() {
+  const username = localStorage.getItem('username')
   return (
     //Revisar - Dar uma analisada pra tentar enxugar esse componente
     <MenuContainer>
       <MenuHeader>
-        <h2>Fulano de tal</h2>
+        <h2>Olá, {username}</h2>
         <p>Painel AcademiaPRO</p>
       </MenuHeader> 
 
