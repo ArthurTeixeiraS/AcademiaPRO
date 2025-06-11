@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 //Arquivo específico para botões genéricos
-export const ButtonLabel = styled.button`
+export const ButtonLabel = styled.button<{ $variant?: 'primary' | 'danger' }>`
  width: 100%;
 max-width: 12rem;
 height: 3.6rem;
@@ -17,10 +17,13 @@ font-size: 1.2rem;
 white-space: nowrap;
 transition: background 0.3s ease;
 
+background-color: ${({ $variant, theme }) => 
+    $variant === 'danger' ? theme.colors.error : theme.colors.primary};
+  
 
 &:hover {
-  background: ${({ theme }) => theme.colors['primary-hover']}; 
   cursor: pointer;
+  opacity: 0.92;
 }
 
 @media (max-width: 480px) {

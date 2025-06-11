@@ -1,6 +1,6 @@
-import type { Customer, CustomersStorage } from "../../@types/customer";
+import type { Customer, CustomersStorage } from "../../../@types/customer";
 
-
+//Serve para Editar ou Adicionar Alunos
 export const saveCustomerToLocalStorage = (newCustomer: Customer) => {
   try {
     const storedCustomers = localStorage.getItem('customers');

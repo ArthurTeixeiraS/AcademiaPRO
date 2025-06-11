@@ -30,7 +30,7 @@ export const BackGroundContainer = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column; 
-  gap: 1.5rem;
+  gap: 0.7rem;
   width: 100%;
   max-width: 400px;
   background: white;
@@ -39,7 +39,6 @@ export const Form = styled.form`
   label{
     font-size: 1.4rem;
     color: ${({ theme }) => theme.colors["font-primary"]};
-    margin-bottom: 0.2rem;
   }
 
   input{

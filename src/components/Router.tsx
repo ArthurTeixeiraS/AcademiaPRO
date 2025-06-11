@@ -6,7 +6,7 @@ import { NewSchedule } from '../Pages/NewSchedule'
 import { Customers } from '../Pages/Customer'
 import { NewCustomer } from '../Pages/NewCustomer'
 import { NewModality } from '../Pages/NewModality'
-import { EditCustomerUser } from '../Pages/EditCostumer'
+import { EditCustomerUser } from '../Pages/EditCustomer'
 
 
 export function Router(){

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { CardInfo, ButtonRow } from "./styles";
 import { RoundedCard } from "../RoundedCard";
 import { ButtonLabel } from "../utils/styleButton";
-import { getCustomersFromLocalStorage } from "../utils/localStorageUtils";
+import { getCustomersFromLocalStorage } from "../utils/LocalStorage/CustomersUtils";
 
 export function CustomerCard() {
     const customers = getCustomersFromLocalStorage()
@@ -40,8 +40,15 @@ export function CustomerCard() {
                     </CardInfo>
 
                     <ButtonRow>
-                        <ButtonLabel onClick={() => navigate(`/EditCustomer/${customer.id}`)}>Editar</ButtonLabel>
+                        <ButtonLabel onClick={() => navigate(`/edit-customer/${customer.id}`)}>
+                            Editar
+                        </ButtonLabel>
+                        <ButtonLabel 
+                            $variant="danger">
+                            Excluir
+                        </ButtonLabel>
                     </ButtonRow>
+                    
                 </RoundedCard>
             ))}
         </>

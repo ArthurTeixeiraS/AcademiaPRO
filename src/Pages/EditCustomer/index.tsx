@@ -4,8 +4,7 @@ import { SideMenu } from "../../components/SideMenu";
 import { TopBar } from "../../components/TopBar";
 import { MainContentContainer } from "../../components/utils/generic";
 import { RoundedCard } from "../../components/RoundedCard";
-import { GenericForm } from "../../components/utils/GenericForm";
-import { getCustomerById, saveCustomerToLocalStorage } from "../../components/utils/localStorageUtils";
+import { getCustomerById } from "../../components/utils/LocalStorage/CustomersUtils";
 import type { Customer } from "../../@types/customer";
 
 export function EditCustomerUser() {
@@ -25,22 +24,22 @@ export function EditCustomerUser() {
     }
   }, [id, navigate]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setCustomer(prev => {
-      if (!prev) return prev;
-      return { ...prev, [name]: value }});
-  } 
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  //   const { name, value } = e.target;
+  //   setCustomer(prev => {
+  //     if (!prev) return prev;
+  //     return { ...prev, [name]: value }});
+  // } 
 
-  const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      if (!customer) {
-        alert('Dados do aluno não carregados corretamente');
-        return;
-      }
-      saveCustomerToLocalStorage(customer);
-      navigate('/Customers');
-  }
+  // const handleSubmit = (e: React.FormEvent) => {
+  //     e.preventDefault();
+  //     if (!customer) {
+  //       alert('Dados do aluno não carregados corretamente');
+  //       return;
+  //     }
+  //     saveCustomerToLocalStorage(customer);
+  //     navigate('/Customers');
+  // }
 
   if (!customer) return <h2>Carregando...</h2>;
 
@@ -50,7 +49,8 @@ export function EditCustomerUser() {
       <TopBar />
       <MainContentContainer $repeatColumns={1}>
         <RoundedCard width="45rem" height="50rem">
-          <GenericForm
+          <h1>Opa</h1>
+          {/* <GenericForm
             title="Editar Aluno"
             fields={[
               { label: 'Nome Completo', name: 'nome', placeholder: 'Digite o nome completo...', value: customer.nome },
@@ -63,7 +63,7 @@ export function EditCustomerUser() {
             ]}
             onSubmit={handleSubmit}
             onChange={handleChange}
-          />
+          /> */}
         </RoundedCard>
       </MainContentContainer>
     </>

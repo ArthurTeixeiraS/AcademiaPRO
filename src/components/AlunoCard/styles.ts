@@ -30,5 +30,6 @@ export const CardInfo = styled.p`
 
 export const ButtonRow = styled.div`
   display: flex;
+  justify-content: space-around;
   margin-top: 1rem;
 `;
