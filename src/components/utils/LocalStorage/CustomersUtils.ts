@@ -19,6 +19,7 @@ export const saveCustomerToLocalStorage = (newCustomer: Customer) => {
             }          
         });
     }
+    console.log(customers)
     localStorage.setItem('customers', JSON.stringify(customers));
   } catch (error) {
     console.error('Erro ao salvar no localStorage:', error);
@@ -47,3 +48,18 @@ export const getCustomerById = (id: string): Customer | undefined => {
     return undefined;
   }
 };
+
+export const removeCustomerFromLocalStorage = (id: string) : boolean => {
+  try{
+    const storedCustomers = localStorage.getItem('customers');
+    if(!storedCustomers) return false;
+
+    const customers: Customer[] = JSON.parse(storedCustomers);
+    const updatedCustomers = customers.filter(customer => customer.id !== id);
+    localStorage.setItem('customers', JSON.stringify(updatedCustomers))
+    return true
+  } catch (error) {
+    console.error('Erro ao remover customer: ', error)
+    return false
+  }
+}

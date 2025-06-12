@@ -27,9 +27,3 @@ export const CardInfo = styled.p`
     margin-left: 0.2rem;
   }
 `;
-
-export const ButtonRow = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
-`;

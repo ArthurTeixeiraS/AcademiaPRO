@@ -1,5 +1,5 @@
 import { RoundedCard } from "../RoundedCard";
-import { CardInfo } from "../AlunoCard/styles";
+import { CardInfo } from "../utils/CardStyles";
 import { ButtonLabel } from "../utils/styleButton";
 import { Link } from "react-router-dom";
 

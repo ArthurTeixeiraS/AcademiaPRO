@@ -2,7 +2,7 @@
 import { SideMenu } from "../../components/SideMenu";
 import { TopBar } from "../../components/TopBar";
 import { Container, MainContentContainer } from "../../components/utils/generic";
-import { CustomerCard } from "../../components/AlunoCard";
+import { CustomerCard } from "../../components/CustomerCard";
 import { NewRegister } from "../../components/NewRegister";
 
 

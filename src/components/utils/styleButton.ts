@@ -38,3 +38,9 @@ export const ButtonGroup = styled.div`
   align-items: center;
 `;
 
+export const ButtonRow = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+`;
+

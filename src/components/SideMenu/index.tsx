@@ -32,7 +32,7 @@ export function SideMenu() {
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/Modalitys"> 
+          <Link to="/Modalities"> 
             - Modalidades
           </Link>
         </MenuItem>

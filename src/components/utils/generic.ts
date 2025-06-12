@@ -49,6 +49,14 @@ export const Form = styled.form`
     border-radius: 6px;      
   }
 
+  textarea{
+    display: flex;
+    width: 100%;
+    height: 10rem;
+    resize: none;
+    padding: 0.5rem;
+  }
+
   .optionBox{
     border: 1px solid #ddd;
     border-radius: 10px;

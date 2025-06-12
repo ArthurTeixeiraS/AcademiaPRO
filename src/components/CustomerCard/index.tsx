@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { CardInfo, ButtonRow } from "./styles";
+import { CardInfo } from "../utils/CardStyles";
 import { RoundedCard } from "../RoundedCard";
-import { ButtonLabel } from "../utils/styleButton";
-import { getCustomersFromLocalStorage } from "../utils/LocalStorage/CustomersUtils";
+import { ButtonLabel, ButtonRow } from "../utils/styleButton";
+import { getCustomersFromLocalStorage, removeCustomerFromLocalStorage } from "../utils/LocalStorage/CustomersUtils";
 
 export function CustomerCard() {
     const customers = getCustomersFromLocalStorage()
@@ -18,6 +18,17 @@ export function CustomerCard() {
                 return plano;
         }
     };
+    const handleDelete = (id: string) => {
+        if (window.confirm('Tem certeza que deseja excluir este aluno?')) {
+            const success = removeCustomerFromLocalStorage(id);
+            if (success) {
+                window.location.reload()
+            } else {
+                alert('Erro ao remover aluno.');
+            }
+        }
+    };
+
     return (
         <>
             {customers.map((customer) => (
@@ -40,11 +51,12 @@ export function CustomerCard() {
                     </CardInfo>
 
                     <ButtonRow>
-                        <ButtonLabel onClick={() => navigate(`/edit-customer/${customer.id}`)}>
+                        <ButtonLabel onClick={() => navigate(`/EditCustomer/${customer.id}`)}>
                             Editar
                         </ButtonLabel>
                         <ButtonLabel 
-                            $variant="danger">
+                            $variant="danger"
+                            onClick={() => {handleDelete(customer.id)}}>
                             Excluir
                         </ButtonLabel>
                     </ButtonRow>
