@@ -13,13 +13,9 @@ export function MainSchedule() {
   return (
     <>
       {/* Pendente */}
-      <DivHeader>
-        <h1>Gerenciar Agendamentos</h1>
-        <ButtonLabel onClick={newSchedule}>+ Novo Agendamento</ButtonLabel>
-      </DivHeader>
+
 
       <Container>
-        <Inputs placeholder="Buscar agendamentos..." />
         
         <div className="mt-6 rounded-lg border p-6 shadow-sm bg-white max-w-md">
           <h2 className="text-xl font-semibold">Consulta João Silva</h2>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 //Arquivo específico para botões genéricos
 export const ButtonLabel = styled.button<{ $variant?: 'primary' | 'danger' }>`
  width: 100%;
-max-width: 12rem;
+max-width: 13rem;
 height: 3.6rem;
 background: ${({ theme }) => theme.colors.primary};
 color: white;

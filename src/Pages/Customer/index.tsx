@@ -1,8 +1,9 @@
 
 import { SideMenu } from "../../components/SideMenu";
 import { TopBar } from "../../components/TopBar";
-import { Customer } from "../../components/Customer";   
-import { Container } from "../../components/utils/generic";
+import { Container, MainContentContainer } from "../../components/utils/generic";
+import { CustomerCard } from "../../components/AlunoCard";
+import { NewRegister } from "../../components/NewRegister";
 
 
 export function Customers() {
@@ -10,7 +11,10 @@ export function Customers() {
         <Container>
             <SideMenu></SideMenu>
             <TopBar placeholder="Pesquisar por alunos"></TopBar>
-            <Customer></Customer>
+            <MainContentContainer $repeatColumns={4}> 
+                <NewRegister entityName="Aluno" createPath="/newcustomer" buttonText="Novo aluno"/>
+                <CustomerCard></CustomerCard>
+            </MainContentContainer>
         </Container>
     )
 }

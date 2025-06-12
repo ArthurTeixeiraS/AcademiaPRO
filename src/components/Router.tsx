@@ -7,6 +7,7 @@ import { Customers } from '../Pages/Customer'
 import { NewCustomer } from '../Pages/NewCustomer'
 import { NewModality } from '../Pages/NewModality'
 import { EditCustomerUser } from '../Pages/EditCustomer'
+import { Modalitys } from '../Pages/Modalitys'
 
 
 export function Router(){
@@ -21,6 +22,7 @@ export function Router(){
                 <Route path='/newcustomer' element={<NewCustomer/>}/>
                 <Route path='/newModality' element={<NewModality/>}/>
                 <Route path="/EditCustomer/:id" element={<EditCustomerUser/>} />
+                <Route path="/Modalitys" element={<Modalitys/>}/>
             </Routes>
         </>
     )

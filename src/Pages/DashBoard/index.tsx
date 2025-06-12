@@ -17,16 +17,21 @@ export function DashBoard(){
                 </RoundedCard> 
                 <div className="rowSection">
                     <RoundedCard width="95%" height="100%">
-                    <></>
+                    <>
+                    teste
+                    </>
                     </RoundedCard>
                     <RoundedCard width="95%" height="100%">
-                    <></>
+                    <>
+                    </>
                     </RoundedCard>
                     <RoundedCard width="95%" height="100%">
-                    <></>
+                    <>
+                    </>
                     </RoundedCard>
                     <RoundedCard width="95%" height="100%">
-                    <></>
+                    <>
+                    </>
                     </RoundedCard>
                 </div>
             </FlexibleContentContainer>

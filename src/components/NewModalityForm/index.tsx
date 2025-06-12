@@ -7,6 +7,7 @@ import { Form } from "../utils/generic";
 export function NewModalityForm() {
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
+    const [capacidade, setCapacidade] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -36,6 +37,14 @@ export function NewModalityForm() {
                 id="descricao"
                 value={descricao}
                 onChange={(e) => setDescricao(e.target.value)}
+              />
+            </div>
+             <div>
+              <label htmlFor="capacidade">Capacidade (pessoas)</label>
+              <input
+                id="capacidade"
+                value={capacidade}
+                onChange={(e) => setCapacidade(e.target.value)}
               />
             </div>
             <Button type="submit">Cadastrar</Button>
