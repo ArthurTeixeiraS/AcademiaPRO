@@ -8,6 +8,7 @@ import { NewCustomer } from '../Pages/Customer/NewCustomer'
 import { NewModality } from '../Pages/Modalities/NewModality'
 import { EditCustomer } from '../Pages/Customer/EditCustomer'
 import { Modalities } from '../Pages/Modalities'
+import { EditModality } from '../Pages/Modalities/EditModality'
 
 
 export function Router(){
@@ -16,11 +17,15 @@ export function Router(){
             <Routes>
                 <Route path='/' element={<Login/>}/>
                 <Route path='/dashboard' element={<DashBoard/>}/>
+
                 <Route path='/Customers' element={<Customers/>}/>
                 <Route path='/newcustomer' element={<NewCustomer/>}/>
                 <Route path="/EditCustomer/:id" element={<EditCustomer/>} />
+
                 <Route path='/newModality' element={<NewModality/>}/>
                 <Route path="/modalities" element={<Modalities/>}/>
+                <Route path="/EditModality/:id" element={<EditModality/>}/>
+                
                 <Route path='/schedule' element={<Schedule/>}/>
                 <Route path='/newschedule' element={<NewSchedule/>}/>
             </Routes>

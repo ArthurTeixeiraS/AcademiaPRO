@@ -20,7 +20,6 @@ export const saveModalityToLocalStorage = (newModality: Modality) => {
             }          
         });
     }
-    console.log(modalities)
     localStorage.setItem('modalities', JSON.stringify(modalities));
   } catch (error) {
     console.error('Erro ao salvar no localStorage:', error);
@@ -36,3 +35,30 @@ export const getModalitiesFromLocalStoragem = (): ModalityStorage => {
     return [];
   }
 };
+
+export const getModalityById = (id: string): Modality | undefined  => {
+  try{
+    const storedModalities = localStorage.getItem('modalities');
+    if (!storedModalities) return undefined
+
+    const modalities : Modality[] = JSON.parse(storedModalities)
+    return modalities.find(modality => modality.id === id);
+  } catch (error) {
+    console.error('Erro ao buscar modality: ', error)
+  }
+}
+
+export const removeModalityFromLocalStorage = (id: string): boolean =>{
+  try {
+    const storedModalities = localStorage.getItem('modalities');
+    if(!storedModalities) return false;
+
+    const modalities: Modality[] = JSON.parse(storedModalities);
+    const updatedModalities = modalities.filter(modality => modality.id !== id)
+    localStorage.setItem('modalities', JSON.stringify(updatedModalities))
+    return true
+  } catch(error) {
+    console.error('Erro ao remover modality: ', error)
+    return false
+  }
+}

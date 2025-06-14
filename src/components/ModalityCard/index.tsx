@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { getModalitiesFromLocalStoragem } from "../utils/LocalStorage/ModalityUtils"
+import { getModalitiesFromLocalStoragem, removeModalityFromLocalStorage } from "../utils/LocalStorage/ModalityUtils"
 import { RoundedCard } from "../RoundedCard";
 import { CardInfo } from "../utils/CardStyles";
 import { ButtonLabel, ButtonRow } from "../utils/styleButton";
@@ -21,6 +21,17 @@ export function ModalityCard() {
         }
     }
 
+    const handleDelete = (id: string) => {
+        if(window.confirm('Tem certeza que deseja excluir esta Modalidade?')){
+            const success = removeModalityFromLocalStorage(id);
+            if(success){
+                window.location.reload()
+            } else {
+                alert('Erro ao remover modalidade.')
+            }
+        }
+    }
+
     return (
         <>
             {modalities.map((modality) => (
@@ -30,6 +41,7 @@ export function ModalityCard() {
                     </div>
                     <CardInfo>
                         <span>🧾</span>
+                        {/* A principio isso aqui vai dar um error cabuloso no Console, mas convenientemente, funciona */}
                         <p
                             className="card-text"
                             title={modality.descricao}
@@ -50,12 +62,12 @@ export function ModalityCard() {
                     </CardInfo>
 
                     <ButtonRow>
-                        <ButtonLabel onClick={() => navigate(`/EditCustomer/${modality.id}`)}>
+                        <ButtonLabel onClick={() => navigate(`/EditModality/${modality.id}`)}>
                             Editar
                         </ButtonLabel>
                         <ButtonLabel 
                             $variant="danger"
-                            onClick={() => {}}>
+                            onClick={() => {handleDelete(modality.id)}}>
                             Excluir
                         </ButtonLabel>
                     </ButtonRow>

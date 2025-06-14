@@ -19,10 +19,9 @@ export const saveCustomerToLocalStorage = (newCustomer: Customer) => {
             }          
         });
     }
-    console.log(customers)
     localStorage.setItem('customers', JSON.stringify(customers));
   } catch (error) {
-    console.error('Erro ao salvar no localStorage:', error);
+    console.error('Erro ao salvar no localStorage: ', error);
   }
 };
 
@@ -31,7 +30,7 @@ export const getCustomersFromLocalStorage = (): CustomersStorage => {
     const storedCustomers = localStorage.getItem('customers');
     return storedCustomers ? JSON.parse(storedCustomers) : [];
   } catch (error) {
-    console.error('Erro ao ler do localStorage:', error);
+    console.error('Erro ao ler do localStorage: ', error);
     return [];
   }
 };
@@ -44,7 +43,7 @@ export const getCustomerById = (id: string): Customer | undefined => {
     const customers: Customer[] = JSON.parse(storedCustomers);
     return customers.find(customer => customer.id === id);
   } catch (error) {
-    console.error('Erro ao buscar customer:', error);
+    console.error('Erro ao buscar customer: ', error);
     return undefined;
   }
 };

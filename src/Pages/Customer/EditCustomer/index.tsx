@@ -54,7 +54,7 @@ export function EditCustomer() {
     saveCustomerToLocalStorage(formData);
 
     alert('Aluno cadastrado com sucesso!');
-    navigate('/customers')
+    navigate('/Customers')
   }
 
   if (!formData) return <div>Carregando...</div>;
