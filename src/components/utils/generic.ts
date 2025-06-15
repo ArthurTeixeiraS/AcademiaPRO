@@ -115,21 +115,21 @@ export const FlexibleContentContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     flex-direction: row;
-    width: 96.5%;
+    width: 100%;
     height: 10vh;
 
     @media (max-width: 1609px){
       width: 91.5%;
+      gap: 2rem;
     }
 
     @media (max-width: 1260px){
-      width: 81.5%;
       display: grid;
-      grid-template-columns: repeat(2, 1fr)
+      grid-template-columns: repeat(2, 1fr);
+      height: 50%;
     }
     
     @media (max-width: 970px) { 
-      width: 63%;
       grid-template-columns: repeat(1, 1fr);
     }
   }
@@ -143,6 +143,40 @@ export const FlexibleContentContainer = styled.div`
     background: ${({ theme }) => theme.colors.secondary};
     border-radius: 4px;
   }
+
+  .dashBoardTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    p{
+      font-size: 1.7rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 1260px){
+      margin-left: -5rem;
+    }
+
+    @media (max-width: 970px) { 
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 1609px){
+      width: 91.5%;
+    }
+
+    @media (max-width: 1260px){
+      width: 81.5%;
+    }
+    
+    @media (max-width: 970px) { 
+      width: 63%;
+    }
 `
 
 export const SearchInput = styled.input`

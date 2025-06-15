@@ -11,10 +11,10 @@ export function DashBoard(){
             <TopBar></TopBar>
             <SideMenu></SideMenu>
             <FlexibleContentContainer>
-                <RoundedCard width="47%" height="10%" isLarge={true}>
-                    <h1>Bem vindo, {username}</h1>
-                    <p>Nesse Dashboard, estão disponíveis dados rápidos e atalhos para suas funções preferidas!</p>
-                </RoundedCard> 
+                <div className="dashBoardTitle">
+                    <h1>Bem-vindo, {username}</h1>
+                    <p>Gerencie seus alunos, modalidades e agendamentos de forma simples e eficiênte!</p>
+                </div>
                 <div className="rowSection">
                     <RoundedCard width="95%" height="100%">
                     <>
