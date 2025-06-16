@@ -2,14 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { CardInfo } from "../utils/CardStyles";
 import { RoundedCard } from "../RoundedCard";
 import { ButtonLabel, ButtonRow } from "../utils/styleButton";
-import { getCustomersFromLocalStorage } from "../utils/LocalStorage/CustomersUtils";
+import type { CustomersStorage } from "../../@types/customer";
 
 type CustomerCardProps = {
+  customers: CustomersStorage;
   onDelete: (id: string) => void;
 };
 
-export function CustomerCard({ onDelete }: CustomerCardProps) {
-  const customers = getCustomersFromLocalStorage();
+export function CustomerCard({ customers, onDelete }: CustomerCardProps) {
   const navigate = useNavigate();
 
   const formatPlano = (plano: string): string => {
@@ -31,29 +31,13 @@ export function CustomerCard({ onDelete }: CustomerCardProps) {
             <h2>{customer.nome}</h2>
           </div>
 
-          <CardInfo>
-            <span>📧</span>
-            {customer.email}
-          </CardInfo>
-          <CardInfo>
-            <span>📞</span>
-            {customer.telefone}
-          </CardInfo>
-          <CardInfo>
-            <span>📅</span>
-            Matrícula: <strong>{formatPlano(customer.plano)}</strong>
-          </CardInfo>
+          <CardInfo><span>📧</span>{customer.email}</CardInfo>
+          <CardInfo><span>📞</span>{customer.telefone}</CardInfo>
+          <CardInfo><span>📅</span>Matrícula: <strong>{formatPlano(customer.plano)}</strong></CardInfo>
 
           <ButtonRow>
-            <ButtonLabel onClick={() => navigate(`/EditCustomer/${customer.id}`)}>
-              Editar
-            </ButtonLabel>
-            <ButtonLabel
-              $variant="danger"
-              onClick={() => onDelete(customer.id)}
-            >
-              Excluir
-            </ButtonLabel>
+            <ButtonLabel onClick={() => navigate(`/EditCustomer/${customer.id}`)}>Editar</ButtonLabel>
+            <ButtonLabel $variant="danger" onClick={() => onDelete(customer.id)}>Excluir</ButtonLabel>
           </ButtonRow>
         </RoundedCard>
       ))}

@@ -7,6 +7,7 @@ import { ButtonGroup, ButtonLabel } from "../../../components/utils/styleButton"
 import type { Modality } from "../../../@types/modality";
 import { useNavigate, useParams } from "react-router-dom";
 import { getModalityById, saveModalityToLocalStorage } from "../../../components/utils/LocalStorage/ModalityUtils";
+import AlertToast from "../../../components/Alerts/AlertToast";
 
 export function EditModality(){
     const navigate = useNavigate();
@@ -19,6 +20,8 @@ export function EditModality(){
         publicoAlvo: '',
     });
 
+    const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
+
     useEffect(() => {
         if (id) {
           const customerData = getModalityById(id);
@@ -28,7 +31,7 @@ export function EditModality(){
             navigate('/customers');
           }
         }
-      }, [id, navigate]);
+    }, [id, navigate]);
 
     const handlePublicSelect = (publicoAlvo: string) => {
         setFormData(prev => ({ ...prev, publicoAlvo }));
@@ -47,14 +50,14 @@ export function EditModality(){
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();    
         if(!formData.nome.trim() || !formData.descricao.trim() || formData.capacidade <= 0){
-            alert('Preencha todos os campos obrigatórios!')
-            return
+            setToast({ message: 'Preencha todos os campos obrigatórios!', type: 'error' });
+            return;
         }
 
         saveModalityToLocalStorage(formData);
 
-        alert('Modalidade editada com sucesso!');
-        navigate('/Modalities')
+        setToast({ message: 'Modalidade editada com sucesso!', type: 'success' });
+        setTimeout(() => navigate('/modalities'), 1500);
     }
 
     return(
@@ -152,6 +155,13 @@ export function EditModality(){
                 </Form>
             </RoundedCard>
         </FlexibleContentContainer>
+        {toast && (
+            <AlertToast
+              message={toast.message}
+              type={toast.type}
+              onClose={() => setToast(null)}
+            />
+        )}
         </>
     )
 }
