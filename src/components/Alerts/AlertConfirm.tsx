@@ -36,16 +36,16 @@ const Button = styled.button`
   padding: 6px 12px;
   border: none;
   border-radius: 6px;
-  background: #007bff;
+  background: ${({ theme }) => theme.colors.primary};
   color: white;
   cursor: pointer;
 
   &:hover {
-    background: #0056b3;
+    background: ${({ theme }) => theme.colors['primary-hover']};;
   }
 `;
 
-const AlertConfirm: React.FC<AlertConfirmProps> = ({ message, onConfirm, onCancel }) => {
+export const AlertConfirm: React.FC<AlertConfirmProps> = ({ message, onConfirm, onCancel }) => {
   return (
     <Overlay>
       <Dialog>
@@ -58,5 +58,3 @@ const AlertConfirm: React.FC<AlertConfirmProps> = ({ message, onConfirm, onCance
     </Overlay>
   );
 };
-
-export default AlertConfirm;

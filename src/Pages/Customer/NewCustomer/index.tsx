@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import AlertToast from "../../../components/Alerts/AlertToast";
+import { AlertToast } from "../../../components/Alerts/AlertToast";
 import { RoundedCard } from "../../../components/RoundedCard";
 import { SideMenu } from "../../../components/SideMenu";
 import { TopBar } from "../../../components/TopBar";

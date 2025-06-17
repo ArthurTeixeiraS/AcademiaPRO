@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AlertToast from "../../../components/Alerts/AlertToast";
+import { AlertToast } from "../../../components/Alerts/AlertToast";
 import { RoundedCard } from "../../../components/RoundedCard";
 import { SideMenu } from "../../../components/SideMenu";
 import { TopBar } from "../../../components/TopBar";
@@ -68,6 +68,7 @@ export function NewModality() {
               onChange={handleChange}
               placeholder="Digite o nome da modalidade..."
               required
+              autoComplete="off"
             />
 
             <label>Descrição</label>
@@ -99,7 +100,7 @@ export function NewModality() {
 
             <div className={`optionBox ${formData.publicoAlvo === 'adulto' ? 'active' : ''}`} onClick={() => handlePublicSelect('adulto')}>
               <input type="radio" name="publicoAlvo" value="adulto" checked={formData.publicoAlvo === 'adulto'} onChange={() => {}} hidden />
-              <strong>Adulto</strong>
+              <strong>Jovem-Adulto</strong>
               <p>Exercícios de resistência e flexibilidade</p>
             </div>
 

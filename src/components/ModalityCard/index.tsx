@@ -3,12 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { RoundedCard } from "../RoundedCard";
 import { ButtonLabel, ButtonRow } from "../utils/styleButton";
 import { CardInfo } from "../utils/CardStyles";
-import {
-  getModalitiesFromLocalStorage,
-  removeModalityFromLocalStorage
-} from "../utils/LocalStorage/ModalityUtils";
-import AlertConfirm from "../Alerts/AlertConfirm";
-import AlertToast from "../Alerts/AlertToast";
+import { getModalitiesFromLocalStorage, removeModalityFromLocalStorage } from "../utils/LocalStorage/ModalityUtils";
+import { AlertConfirm } from "../Alerts/AlertConfirm";
+import { AlertToast } from "../Alerts/AlertToast";
 import type { Modality } from "../../@types/modality";
 
 export function ModalityCard() {
@@ -48,7 +45,7 @@ export function ModalityCard() {
       case "infantil":
         return "Infantil";
       case "adulto":
-        return "Adulto";
+        return "Jovem-Adulto";
       default:
         return publico;
     }
@@ -59,8 +56,21 @@ export function ModalityCard() {
       {modalities.map((modality) => (
         <RoundedCard key={modality.id} width="30rem" height="22rem" isLarge={false}>
           <h2>{modality.nome}</h2>
-          <CardInfo><span>✏️</span> {modality.descricao}</CardInfo>
-          <CardInfo><span>👥</span> Capacidade: {modality.capacidade}</CardInfo>
+          <CardInfo>
+            <span>✏️</span> 
+            <p
+                className="card-text"
+                title={modality.descricao}
+            >
+                {modality.descricao.length > 50 
+                ? `${modality.descricao.substring(0, 50)}...` 
+                : modality.descricao
+                }
+            </p>
+          </CardInfo>
+          <CardInfo>
+            <span>👥</span> {modality.capacidade} Pessoa(as)
+          </CardInfo>
           <CardInfo><span>📌</span> Público: {formatPublico(modality.publicoAlvo)}</CardInfo>
 
           <ButtonRow>

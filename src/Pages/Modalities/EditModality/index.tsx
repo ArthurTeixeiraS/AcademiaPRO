@@ -7,7 +7,7 @@ import { ButtonGroup, ButtonLabel } from "../../../components/utils/styleButton"
 import type { Modality } from "../../../@types/modality";
 import { useNavigate, useParams } from "react-router-dom";
 import { getModalityById, saveModalityToLocalStorage } from "../../../components/utils/LocalStorage/ModalityUtils";
-import AlertToast from "../../../components/Alerts/AlertToast";
+import { AlertToast } from "../../../components/Alerts/AlertToast";
 
 export function EditModality(){
     const navigate = useNavigate();
@@ -19,6 +19,7 @@ export function EditModality(){
         capacidade: 0,
         publicoAlvo: '',
     });
+
 
     const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
 

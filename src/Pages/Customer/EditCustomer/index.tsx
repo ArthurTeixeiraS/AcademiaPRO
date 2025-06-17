@@ -16,7 +16,7 @@ import {
   getCustomerById,
   saveCustomerToLocalStorage,
 } from "../../../components/utils/LocalStorage/CustomersUtils";
-import AlertToast from "../../../components/Alerts/AlertToast";
+import { AlertToast } from "../../../components/Alerts/AlertToast";
 
 export function EditCustomer() {
   const navigate = useNavigate();

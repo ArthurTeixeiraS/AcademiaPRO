@@ -4,8 +4,8 @@ import { TopBar } from "../../components/TopBar";
 import { Container, MainContentContainer } from "../../components/utils/generic";
 import { CustomerCard } from "../../components/CustomerCard";
 import { NewRegister } from "../../components/NewRegister";
-import AlertConfirm from "../../components/Alerts/AlertConfirm";
-import AlertToast from "../../components/Alerts/AlertToast";
+import { AlertConfirm } from "../../components/Alerts/AlertConfirm";
+import { AlertToast } from "../../components/Alerts/AlertToast";
 import { getCustomersFromLocalStorage, removeCustomerFromLocalStorage } from "../../components/utils/LocalStorage/CustomersUtils";
 import type { CustomersStorage } from "../../@types/customer";
 

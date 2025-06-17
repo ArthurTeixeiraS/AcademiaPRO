@@ -16,6 +16,9 @@ export const CardContainer = styled.div<{
   padding: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   &:hover {
     transform: translateY(-5px);

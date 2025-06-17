@@ -12,7 +12,7 @@ const Toast = styled.div<{ type: string }>`
   bottom: 20px;
   right: 20px;
   padding: 16px 24px;
-  background: ${({ type }) => (type === "error" ? "#dc3545" : "#28a745")};
+  background: ${({ type }) => (type === "error" ? "#DC3545" : "#198754")};
   color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -26,7 +26,7 @@ const Toast = styled.div<{ type: string }>`
 `;
 
 
-const AlertToast: React.FC<AlertToastProps> = ({ message, type = "success", onClose }) => {
+export const AlertToast: React.FC<AlertToastProps> = ({ message, type = "success", onClose }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
@@ -36,5 +36,3 @@ const AlertToast: React.FC<AlertToastProps> = ({ message, type = "success", onCl
 
   return <Toast type={type}>{message}</Toast>;
 };
-
-export default AlertToast;
