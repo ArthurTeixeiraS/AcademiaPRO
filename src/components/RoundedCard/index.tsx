@@ -1,4 +1,5 @@
-import { CardContainer } from "./styles";
+import { CardContainer, GoToPageButton, HoverContent } from "./styles";
+import { Link } from "react-router-dom";
 
 type CardProps = {
   width?: string; 
@@ -7,6 +8,7 @@ type CardProps = {
   color?: string;
   isLarge?: boolean;
   children: React.ReactNode;
+  linkTo?: string;
 };
 
 // Esse componente é customizavel, da pra passar os parametros e customizar ele como prefirir
@@ -16,6 +18,7 @@ export function RoundedCard({
     backgroundColor = '#fffffff', 
     color = '#000000', 
     isLarge = false,
+    linkTo,
     children }: CardProps
   ) {
   return (
@@ -27,6 +30,13 @@ export function RoundedCard({
         $isLarge={isLarge}
     >
       {children}
+       {linkTo && (
+        <HoverContent>
+          <Link to={linkTo}>
+            <GoToPageButton>Ir para página</GoToPageButton>
+          </Link>
+        </HoverContent>
+      )}
     </CardContainer>
   );
 }

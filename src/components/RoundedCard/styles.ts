@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const CardContainer = styled.div<{
   $width: string;
   $height: string;
@@ -15,12 +16,19 @@ export const CardContainer = styled.div<{
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   padding: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
   margin: 1rem;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    color: #1e90ff;
   }
+
+    &:hover .hover-content {
+  opacity: 1;
+  pointer-events: auto;
+}
 
   p{
     font-size: 1.5rem;
@@ -43,5 +51,33 @@ export const CardContainer = styled.div<{
   @media (max-width: 970px) {
      width: ${props => props.$isLarge ? '60%' : props.$width};
      height: ${props => props.$isLarge ? '28%' : props.$height};
+  }
+`;
+
+export const HoverContent = styled.div.attrs(() => ({
+  className: "hover-content",
+}))`
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+`;
+
+export const GoToPageButton = styled.button`
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #006fd6;
   }
 `;
