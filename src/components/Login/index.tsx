@@ -1,9 +1,8 @@
 
 import { useNavigate } from 'react-router-dom';
-import { MenuTitle, ExtraContainer, LoginConfigForm} from './styles';
+import { MenuTitle, ExtraContainer,LoginConfigForm, LeftContainer, RightContainer,LoginPageContainer,FormContainer} from './styles';
 import { ButtonGroup, ButtonLabel} from '../utils/styleButton'
 import { useState } from 'react';
-import { BackGroundContainer, Form } from '../utils/generic';
 
 export function LoginForm() {
     const navigate = useNavigate()
@@ -19,39 +18,42 @@ export function LoginForm() {
     const [showPassword, setShowPassword] = useState(false);
 
     return(
-        <BackGroundContainer>
+    <LoginPageContainer>
+      <LeftContainer>
+        <FormContainer onSubmit={handleLogin}>
             <MenuTitle>
                 <h1>{'Seja bem vindo(a) ao'}</h1>
                 <p>AcademiaPRO</p>
             </MenuTitle>
-            <Form onSubmit={handleLogin}>  
-                <LoginConfigForm>
-                    <h2>Acesse:</h2>
-                    <input 
+            <LoginConfigForm>
+                <h2>Acesse:</h2>
+                <input 
                         required 
                         placeholder='Usuário'
                         onChange={(e) => setUsername(e.target.value)}
-                        type='text'>
-                    </input>
-                    <input 
-                        required 
-                        placeholder='Senha' 
-                        type={showPassword ? 'text' : 'password'}
-                        id='passwordInput'>
-                    </input>
-                    <ExtraContainer className="extraContainer">
+                        type='text'/>
+                <input 
+                    required 
+                    placeholder='Senha' 
+                    type={showPassword ? 'text' : 'password'}
+                    id='passwordInput'/>
+                    
+                <ExtraContainer className="extraContainer">
                         <input 
                             type="checkbox" 
                             name="showPassword"
                             onChange={() => setShowPassword(!showPassword)}
                         />
                         <label className='showPassword' htmlFor="showPassword">Exibir senha</label>
-                    </ExtraContainer>
-                    <ButtonGroup>
+                </ExtraContainer>
+                <ButtonGroup>
                         <ButtonLabel type='submit'>Acessar</ButtonLabel>
-                    </ButtonGroup>
-                </LoginConfigForm>
-            </Form>
-        </BackGroundContainer>
+                </ButtonGroup>
+            </LoginConfigForm>
+        </FormContainer>
+      </LeftContainer>
+      <RightContainer>
+      </RightContainer>
+    </LoginPageContainer>
     )
 }
