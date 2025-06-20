@@ -24,7 +24,6 @@ export const saveModalityToLocalStorage = (newModality: Modality) => {
   }
 };
 
-// ✅ CORRIGIDO: função agora com nome certo!
 export const getModalitiesFromLocalStorage = (): ModalityStorage => {
   try {
     const storedModalities = localStorage.getItem("modalities");

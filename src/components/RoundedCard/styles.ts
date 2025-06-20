@@ -25,13 +25,12 @@ export const CardContainer = styled.div<{
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    color: #1e90ff;
   }
 
-    &:hover .hover-content {
-  opacity: 1;
-  pointer-events: auto;
-}
+  &:hover .hover-content {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
   p{
     font-size: 1.5rem;
@@ -70,7 +69,7 @@ export const HoverContent = styled.div.attrs(() => ({
 `;
 
 export const GoToPageButton = styled.button`
-  background-color: #1e90ff;
+  background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -81,6 +80,6 @@ export const GoToPageButton = styled.button`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #006fd6;
+    background-color: ${({ theme }) => theme.colors["primary-hover"]};
   }
 `;

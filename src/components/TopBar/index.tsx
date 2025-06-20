@@ -1,5 +1,5 @@
-import { FiSearch, FiSettings, FiBell, FiLock } from 'react-icons/fi';
-import { TopBarContainer, IconButton, NotificationBadge } from './styles';
+import { FiSearch, FiLock } from 'react-icons/fi';
+import { TopBarContainer, IconButton } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { SearchInput } from '../utils/generic';
 
@@ -22,13 +22,6 @@ export function TopBar({placeholder= "Pesquisar..."}: Props) {
       </div>
 
       <div className='iconWrapper'>
-        <IconButton>
-          <FiSettings size={20} />
-        </IconButton>
-        <IconButton>
-          <FiBell size={20} />
-          <NotificationBadge>+9</NotificationBadge>
-        </IconButton>
         <IconButton>
           <FiLock size={20} onClick={backToLogin} />
         </IconButton>

@@ -62,7 +62,7 @@ export const LoginPageContainer = styled.div`
 `;
 
 export const LeftContainer = styled.div`
-  width: 40%; 
+  width: 55%; 
   background-color: #0b132b;
   display: flex;
   justify-content: center;

@@ -1,4 +1,4 @@
-import { MainSchedule } from "../../components/Schedule";
+import { ScheduleCard } from "../../components/ScheduleCard";
 import {TopBar} from "../../components/TopBar";
 import { SideMenu } from "../../components/SideMenu";
 import { MainContentContainer } from "../../components/utils/generic";
@@ -10,10 +10,9 @@ export function Schedule() {
         <TopBar placeholder="Pesquisar por agendamentos"></TopBar>
         <SideMenu></SideMenu>
           <MainContentContainer $repeatColumns={4}> 
-                       <NewRegister entityName="Agendamentos" createPath="/newschedule" buttonText="Novo agendamento"/>
-                       <MainSchedule></MainSchedule>
-                      </MainContentContainer>
-       
+              <NewRegister entityName="Agendamentos" createPath="/newschedule" buttonText="Novo agendamento"/>
+              <ScheduleCard></ScheduleCard>
+          </MainContentContainer>
         </>
     )
 }

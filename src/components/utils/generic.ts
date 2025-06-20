@@ -41,7 +41,7 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.colors["font-primary"]};
   }
 
-  input{
+  input, select{
     width: 100%;
     padding: 0.9rem;
     font-size: 1.3rem;
@@ -113,7 +113,7 @@ export const FlexibleContentContainer = styled.div`
 
   .rowSection{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     flex-direction: row;
     width: 100%;
     height: 10vh;
@@ -125,7 +125,8 @@ export const FlexibleContentContainer = styled.div`
 
     @media (max-width: 1260px){
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
+      width: 108.5%;
       height: 50%;
     }
     

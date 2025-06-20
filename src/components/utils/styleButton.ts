@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 //Arquivo específico para botões genéricos
 export const ButtonLabel = styled.button<{ $variant?: 'primary' | 'danger' }>`
- width: 100%;
-max-width: 13rem;
+width: 100%;
+max-width: 14rem;
 height: 3.6rem;
 background: ${({ theme }) => theme.colors.primary};
 color: white;
@@ -40,7 +40,7 @@ export const ButtonGroup = styled.div`
 
 export const ButtonRow = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 1rem;
 `;
 

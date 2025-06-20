@@ -54,7 +54,7 @@ export function ModalityCard() {
   return (
     <>
       {modalities.map((modality) => (
-        <RoundedCard key={modality.id} width="30rem" height="22rem" isLarge={false}>
+        <RoundedCard key={modality.id} width="32rem" height="23rem" isLarge={false}>
           <h2>{modality.nome}</h2>
           <CardInfo>
             <span>✏️</span> 

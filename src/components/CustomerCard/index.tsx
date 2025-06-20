@@ -26,7 +26,7 @@ export function CustomerCard({ customers, onDelete }: CustomerCardProps) {
   return (
     <>
       {customers.map((customer) => (
-        <RoundedCard width="30rem" height="22rem" key={customer.id} isLarge={false}>
+        <RoundedCard width="32rem" height="22rem" key={customer.id} isLarge={false}>
           <div>
             <h2>{customer.nome}</h2>
           </div>

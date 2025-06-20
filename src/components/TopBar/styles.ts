@@ -39,18 +39,3 @@ export const IconButton = styled.button`
     color: ${({ theme }) => theme.colors['font-secondary']};
   }
 `;
-
-export const NotificationBadge = styled.span`
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background: ${({ theme }) => theme.colors.success};
-  color: white;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  font-size: 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
