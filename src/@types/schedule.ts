@@ -1,11 +1,13 @@
-export type Schedule = {
-    id: string;
-    alunoId: string;
-    alunoNome: string;
-    modalidadeId: string;
-    modalidadeNome: string;
-    data: string;  // formato AAAA-MM-DD
-    horario: string;  // formato HH:MM
-} 
+// Modelo de estrutura para os agendamentos (aluno + modalidade + data/horário)
 
-export type ScheduleStorage = Schedule[]
+export type Schedule = {
+  id: string;
+  alunoId: string;
+  alunoNome: string;
+  modalidadeId: string;
+  modalidadeNome: string;
+  data: string;     // formato AAAA-MM-DD
+  horario: string;  // formato HH:MM
+};
+
+export type ScheduleStorage = Schedule[];
