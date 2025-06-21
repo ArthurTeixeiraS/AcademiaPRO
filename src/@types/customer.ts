@@ -1,3 +1,5 @@
+// Modelo de estrutura para os dados dos alunos
+
 export type Customer = {
   id: string;
   nome: string;
@@ -6,4 +8,4 @@ export type Customer = {
   plano: string;
 };
 
-export type CustomersStorage = Customer [];
+export type CustomersStorage = Customer[];
