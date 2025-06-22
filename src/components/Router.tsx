@@ -9,6 +9,7 @@ import { NewModality } from '../Pages/Modalities/NewModality'
 import { EditCustomer } from '../Pages/Customer/EditCustomer'
 import { Modalities } from '../Pages/Modalities'
 import { EditModality } from '../Pages/Modalities/EditModality'
+import { EditSchedule } from '../Pages/Schedule/EditSchedule'
 
 
 export function Router(){
@@ -28,6 +29,7 @@ export function Router(){
                 
                 <Route path='/schedule' element={<Schedule/>}/>
                 <Route path='/newschedule' element={<NewSchedule/>}/>
+                <Route path='/EditSchedule/:id' element={<EditSchedule/>}/>
             </Routes>
         </>
     )

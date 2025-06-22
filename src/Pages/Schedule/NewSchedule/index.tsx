@@ -48,24 +48,25 @@ export function NewSchedule() {
             return;
         }
 
-        try {
+          try {
             const alunoSelecionado = alunos.find(a => a.id === formData.alunoId);
             const modalidadeSelecionada = modalidades.find(m => m.id === formData.modalidadeId);
 
             if (!alunoSelecionado || !modalidadeSelecionada) {
-            throw new Error('Dados não encontrados');
+            throw new Error('Dados inválidos');
             }
 
-            const scheduleToSave = {
-            alunoId: formData.alunoId,
+            const dataCorrigida = formData.data.split('T')[0];
+            
+            const novoAgendamento = {
+            ...formData,
+            data: dataCorrigida,
+            horario: formData.horario,
             alunoNome: alunoSelecionado.nome,
-            modalidadeId: formData.modalidadeId,
-            modalidadeNome: modalidadeSelecionada.nome,
-            data: formData.data,
-            horario: formData.horario
+            modalidadeNome: modalidadeSelecionada.nome
             };
 
-            const success = saveScheduleToLocalStorage(scheduleToSave);
+            const success = saveScheduleToLocalStorage(novoAgendamento);
 
             if (success) {
             setToast({ message: 'Agendamento salvo com sucesso!', type: 'success' });

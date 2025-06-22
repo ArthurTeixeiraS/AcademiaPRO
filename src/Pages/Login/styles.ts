@@ -85,8 +85,6 @@ export const ImageBackground = styled.div`
   width: 100%;
   height: 100%;
   background-image: 
-  /* linear-gradient(to right, rgba(11, 19, 43, 1), rgba(11, 19, 43, 0.2)), */
-  /* linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), */
   url(${backgroundImage});
   background-size: cover;
   background-position: center;
@@ -95,9 +93,9 @@ export const ImageBackground = styled.div`
 
 export const FormContainer = styled.form`
   width: 100%;
-  max-width: 400px;
+  max-width: 40rem;
   padding: 2rem;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;

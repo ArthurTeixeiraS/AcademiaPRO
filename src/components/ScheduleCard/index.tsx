@@ -47,7 +47,7 @@ export function ScheduleCard() {
         <RoundedCard key={schedule.id} width="32rem" height="25rem" isLarge={false}>
           <h2>Agendamento {index +1}</h2>
           <CardInfo>
-            <span>📅</span> {new Date(schedule.data).toLocaleDateString()}
+            <span>📅</span> {(schedule.data)}
           </CardInfo>
           <CardInfo>
             <span>⏰</span> {(schedule.horario)}
@@ -68,7 +68,7 @@ export function ScheduleCard() {
 
       {showConfirm && (
               <AlertConfirm
-                message="Tem certeza que deseja excluir esta Modalidade?"
+                message="Tem certeza que deseja excluir este agendamento?"
                 onConfirm={handleDelete}
                 onCancel={() => setShowConfirm(false)}
               />

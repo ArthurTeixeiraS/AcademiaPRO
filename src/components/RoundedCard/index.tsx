@@ -29,13 +29,12 @@ export function RoundedCard({
         $color={color}
         $isLarge={isLarge}
     >
-      {children}
-       {linkTo && (
-        <HoverContent>
-          <Link to={linkTo}>
-            <GoToPageButton>Ir para página</GoToPageButton>
-          </Link>
-        </HoverContent>
+      {linkTo ? (
+        <Link to={linkTo}>
+          {children}
+        </Link>
+      ) : (
+        <>{children}</>
       )}
     </CardContainer>
   );
