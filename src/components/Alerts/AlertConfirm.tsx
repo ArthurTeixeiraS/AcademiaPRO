@@ -1,3 +1,5 @@
+// Componente de alerta de confirmação com sobreposição e botões "Sim" e "Não"
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -45,6 +47,8 @@ const Button = styled.button`
   }
 `;
 
+
+// Componente principal
 export const AlertConfirm: React.FC<AlertConfirmProps> = ({ message, onConfirm, onCancel }) => {
   return (
     <Overlay>

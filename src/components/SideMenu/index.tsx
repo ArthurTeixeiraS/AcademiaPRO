@@ -1,3 +1,4 @@
+// Menu lateral com navegação entre as páginas principais 
 import { Link } from 'react-router-dom';
 import { 
   MenuContainer, MenuHeader, MenuSection, 

@@ -8,4 +8,4 @@ export type Modality = {
   publicoAlvo: string;
 };
 
-export type ModalitiesStorage = Modality[];
+export type ModalityStorage = Modality[];

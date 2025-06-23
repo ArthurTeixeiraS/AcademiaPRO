@@ -1,3 +1,6 @@
+// Componente de alerta estilo "toast" que desaparece sozinho depois de alguns segundos
+
+
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
@@ -24,6 +27,8 @@ const Toast = styled.div<{ type: string }>`
     to { opacity: 1; transform: translateY(0); }
   }
 `;
+
+// Componente principal do Toast
 
 
 export const AlertToast: React.FC<AlertToastProps> = ({ message, type = "success", onClose }) => {

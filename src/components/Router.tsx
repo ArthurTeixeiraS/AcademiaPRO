@@ -1,3 +1,4 @@
+// Define todas as rotas da aplicação
 import { Routes, Route } from 'react-router-dom'
 import { DashBoard } from '../Pages/DashBoard'
 import { Login } from '../Pages/Login'

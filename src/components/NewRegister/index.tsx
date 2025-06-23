@@ -1,8 +1,11 @@
+// Componente de card reutilizável para sugerir o cadastro de novos registros (alunos/modalidades/etc)
 import { RoundedCard } from "../RoundedCard";
 import { CardInfo } from "../utils/CardStyles";
 import { ButtonLabel } from "../utils/styleButton";
 import { Link } from "react-router-dom";
 
+
+// Tipagem das props esperadas pelo componente
 interface NewRegisterProps {
   entityName: string;       
   createPath: string;       

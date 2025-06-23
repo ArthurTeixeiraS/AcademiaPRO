@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { RoundedCard } from "../RoundedCard";
@@ -8,6 +9,8 @@ import { AlertConfirm } from "../Alerts/AlertConfirm";
 import { AlertToast } from "../Alerts/AlertToast";
 import type { Modality } from "../../@types/modality";
 
+
+//componente principal
 export function ModalityCard() {
   const [modalities, setModalities] = useState<Modality[]>([]);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -15,14 +18,20 @@ export function ModalityCard() {
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
   const navigate = useNavigate();
 
+
+  
+  // Carrega as modalidades salvas no localStorage
   useEffect(() => {
     setModalities(getModalitiesFromLocalStorage());
   }, []);
 
+  // ───── HANDLERS DE EXCLUSÃO ─────
   const confirmDelete = (id: string) => {
     setSelectedId(id);
     setShowConfirm(true);
   };
+
+
 
   const handleDelete = () => {
     if (!selectedId) return;
@@ -40,6 +49,8 @@ export function ModalityCard() {
     setSelectedId(null);
   };
 
+
+   // Formata o público-alvo para exibição
   const formatPublico = (publico: string): string => {
     switch (publico.toLowerCase()) {
       case "infantil":
@@ -51,6 +62,9 @@ export function ModalityCard() {
     }
   };
 
+
+
+  //render
   return (
     <>
       {modalities.map((modality) => (

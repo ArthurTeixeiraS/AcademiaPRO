@@ -1,3 +1,4 @@
+// Card para listar, editar ou excluir agendamentos
 import { useEffect, useState } from "react";
 import type { Schedule } from "../../@types/schedule";
 import { RoundedCard } from "../RoundedCard";
@@ -8,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { AlertToast } from "../Alerts/AlertToast";
 import { AlertConfirm } from "../Alerts/AlertConfirm";
 
+
+// Estado principal
 export function ScheduleCard() {
   const [schedules, setSchedules] = useState<Schedule[]>([]);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -15,16 +18,19 @@ export function ScheduleCard() {
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
   const navigate = useNavigate();
 
-
+// Carrega todos os agendamentos do localStorage na montagem
   useEffect(() => {
       setSchedules(getSchedulesFromLocalStorage());
   }, []);
 
+  // Preparar exclusão
   const confirmDelete = (id: string) => {
       setSelectedId(id);
       setShowConfirm(true);
     };
   
+
+    // Executar exclusão + feedback 
     const handleDelete = () => {
       if (!selectedId) return;
   
@@ -41,6 +47,8 @@ export function ScheduleCard() {
       setSelectedId(null);
     };
 
+
+    // Render
   return (
     <>
       {schedules.map((schedule, index) => (

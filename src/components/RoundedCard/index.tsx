@@ -1,6 +1,9 @@
+// Componente genérico de card com bordas arredondadas e estilização customizável
 import { CardContainer, GoToPageButton, HoverContent } from "./styles";
 import { Link } from "react-router-dom";
 
+
+// Tipagem das props do card
 type CardProps = {
   width?: string; 
   height?: string;

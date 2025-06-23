@@ -1,3 +1,4 @@
+// Barra superior simples com nome da página atual
 import { FiSearch, FiLock } from 'react-icons/fi';
 import { TopBarContainer, IconButton } from './styles';
 import { useNavigate } from 'react-router-dom';
