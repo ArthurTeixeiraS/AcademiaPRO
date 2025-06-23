@@ -41,5 +41,4 @@ Alunos que desejam aprender/praticar alguma modalidade
 - React.js + Vite;
 - Styled-Components;
 - React Router DOM;
-- Deploy via Netlify;
 
