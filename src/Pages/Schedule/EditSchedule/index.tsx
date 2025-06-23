@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import type { Schedule } from "../../../@types/schedule";
 import { SideMenu } from "../../../components/SideMenu";
-import { TopBar } from "../../../components/TopBar";
 import { FlexibleContentContainer, Form } from "../../../components/utils/generic";
 import { RoundedCard } from "../../../components/RoundedCard";
 import { AlertToast } from "../../../components/Alerts/AlertToast";
@@ -97,7 +96,6 @@ export function EditSchedule() {
   return (
     <>
       <SideMenu />
-      <TopBar />
       <FlexibleContentContainer>
         <RoundedCard width="45rem" height="40rem">
           <Form onSubmit={handleSubmit}>

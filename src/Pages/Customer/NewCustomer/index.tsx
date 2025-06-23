@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { AlertToast } from "../../../components/Alerts/AlertToast";
 import { RoundedCard } from "../../../components/RoundedCard";
 import { SideMenu } from "../../../components/SideMenu";
-import { TopBar } from "../../../components/TopBar";
 import { FlexibleContentContainer, Form } from "../../../components/utils/generic";
 import { ButtonGroup, ButtonLabel } from "../../../components/utils/styleButton";
 
@@ -60,7 +59,6 @@ export function NewCustomer() {
   return (
     <>
       <SideMenu />
-      <TopBar />
       <FlexibleContentContainer>
         <RoundedCard width="45rem" height="50rem">
           <Form onSubmit={handleSubmit}>

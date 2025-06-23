@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { RoundedCard } from "../../../components/RoundedCard";
 import { SideMenu } from "../../../components/SideMenu";
-import { TopBar } from "../../../components/TopBar";
 import {
   FlexibleContentContainer,
   Form,
@@ -70,7 +69,6 @@ export function EditCustomer() {
   return (
     <>
       <SideMenu />
-      <TopBar />
       <FlexibleContentContainer>
         <RoundedCard width="45rem" height="50rem">
           <Form onSubmit={handleSubmit}>

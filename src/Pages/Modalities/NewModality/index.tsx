@@ -2,7 +2,6 @@ import { useState } from "react";
 import { AlertToast } from "../../../components/Alerts/AlertToast";
 import { RoundedCard } from "../../../components/RoundedCard";
 import { SideMenu } from "../../../components/SideMenu";
-import { TopBar } from "../../../components/TopBar";
 import { FlexibleContentContainer, Form } from "../../../components/utils/generic";
 import { ButtonGroup, ButtonLabel } from "../../../components/utils/styleButton";
 import type { Modality } from "../../../@types/modality";
@@ -54,7 +53,6 @@ export function NewModality() {
   return (
     <>
       <SideMenu />
-      <TopBar />
       <FlexibleContentContainer>
         <RoundedCard width="45rem" height="67rem">
           <Form onSubmit={handleSubmit}>
