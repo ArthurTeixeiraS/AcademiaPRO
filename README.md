@@ -37,7 +37,6 @@ Professores dispostos a ensinar
 Alunos que desejam aprender/praticar alguma modalidade
 
 # 🛠 Tecnologias Utilizadas 
-(Sujeito a alterações)
 - React.js + Vite;
 - Styled-Components;
 - React Router DOM;
