@@ -1,11 +1,22 @@
-// Modelo de estrutura para os dados dos alunos
+// Representa os dados de Aluno conforme a API
 
-export type Customer = {
-  id: string;
+export type UUID = string;
+
+export interface AlunoResponse {
+  id: UUID;
   nome: string;
+  idade: number | null;
   email: string;
-  telefone: string;
+  telefone: string | null;
   plano: string;
-};
+}
 
-export type CustomersStorage = Customer[];
+export interface AlunoRequest {
+  nome: string;
+  idade: number | null;
+  email: string;
+  telefone?: string | null;
+  plano: string;
+}
+
+export type AlunoForm = AlunoRequest;

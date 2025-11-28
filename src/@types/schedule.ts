@@ -1,13 +1,25 @@
-// Modelo de estrutura para os agendamentos (aluno + modalidade + data/horário)
+// Representa os dados de Agendamento conforme a API
 
-export type Schedule = {
-  id: string;
-  alunoId: string;
-  alunoNome: string;
-  modalidadeId: string;
-  modalidadeNome: string;
-  data: string;     // formato AAAA-MM-DD
-  horario: string;  // formato HH:MM
-};
+import type { UUID } from "./customer";
+import type { AlunoResponse } from "./customer";
+import type { ModalidadeResponse } from "./modality";
 
-export type ScheduleStorage = Schedule[];
+export interface AgendamentoResponse {
+  id: UUID;
+  data: string;    
+  alunoId: UUID;
+  modalidadeId: UUID;
+}
+
+export interface AgendamentoRequest {
+  data: string;      
+  alunoId: UUID;
+  modalidadeId: UUID;
+}
+
+export interface AgendamentoDetalhado {
+  id: UUID;
+  data: string;
+  aluno: AlunoResponse;
+  modalidade: ModalidadeResponse;
+}

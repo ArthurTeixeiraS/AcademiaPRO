@@ -1,11 +1,20 @@
-// Modelo de estrutura para as modalidades disponíveis
+// Representa os dados de Modalidade conforme a API
 
-export type Modality = {
-  id: string;
+import type { UUID } from "./customer";
+
+export interface ModalidadeResponse {
+  id: UUID;
   nome: string;
-  descricao: string;
-  capacidade: number;
-  publicoAlvo: string;
-};
+  descricao: string | null;
+  duracao: number;    
+  capacidade: number;  
+}
 
-export type ModalityStorage = Modality[];
+export interface ModalidadeRequest {
+  nome: string;
+  descricao?: string | null;
+  duracao: number;
+  capacidade: number;
+}
+
+export type ModalidadeForm = ModalidadeRequest;

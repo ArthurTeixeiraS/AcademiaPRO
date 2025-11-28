@@ -1,95 +1,142 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import type { Schedule } from "../../../@types/schedule";
 import { SideMenu } from "../../../components/SideMenu";
 import { FlexibleContentContainer, Form } from "../../../components/utils/generic";
 import { RoundedCard } from "../../../components/RoundedCard";
 import { AlertToast } from "../../../components/Alerts/AlertToast";
-import { 
-  getScheduleById,
-  saveScheduleToLocalStorage
-} from "../../../components/utils/LocalStorage/ScheduleUtils";
-import { getCustomersFromLocalStorage } from "../../../components/utils/LocalStorage/CustomersUtils";
-import { getModalitiesFromLocalStorage } from "../../../components/utils/LocalStorage/ModalityUtils";
 import { ButtonGroup, ButtonLabel } from "../../../components/utils/styleButton";
+
+import { listarAlunos } from "../../../services/customerService";
+import { listarModalidades } from "../../../services/modalityService";
+import {
+  buscarAgendamentoPorId,
+  atualizarAgendamento,
+} from "../../../services/scheduleService";
+import type { AlunoResponse } from "../../../@types/customer";
+import type { ModalidadeResponse } from "../../../@types/modality";
+
+interface EditScheduleFormData {
+  alunoId: string;
+  modalidadeId: string;
+  data: string;    
+  horario: string; 
+}
 
 export function EditSchedule() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
-  
-  const [formData, setFormData] = useState<Omit<Schedule, 'id'>>({
-    alunoId: '',
-    alunoNome: '',
-    modalidadeId: '',
-    modalidadeNome: '',
-    data: '',
-    horario: ''
+
+  const [formData, setFormData] = useState<EditScheduleFormData>({
+    alunoId: "",
+    modalidadeId: "",
+    data: "",
+    horario: "",
   });
 
-  const [alunos, setAlunos] = useState<{ id: string; nome: string }[]>([]);
-  const [modalidades, setModalidades] = useState<{ id: string; nome: string }[]>([]);
+  const [alunos, setAlunos] = useState<AlunoResponse[]>([]);
+  const [modalidades, setModalidades] = useState<ModalidadeResponse[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const alunosData = getCustomersFromLocalStorage();
-        const modalidadesData = getModalitiesFromLocalStorage();
-        
-        setAlunos(alunosData.map(a => ({ id: a.id, nome: a.nome })));
-        setModalidades(modalidadesData.map(m => ({ id: m.id, nome: m.nome })));
+    const carregarDados = async () => {
+      if (!id) {
+        setToast({ message: "ID de agendamento inválido", type: "error" });
+        return;
+      }
 
-        if (id) {
-            const agendamento = getScheduleById(id);
-            if (agendamento) {
-            setFormData({
-                ...agendamento,
-                data: agendamento.data.includes('T') 
-                ? agendamento.data.split('T')[0] 
-                : agendamento.data,
-                horario: agendamento.horario
-            });
-            }
+      try {
+        setIsLoading(true);
+        setToast(null);
+
+        const [alunosPage, modalidadesPage, agendamento] = await Promise.all([
+          listarAlunos(0, 100),         
+          listarModalidades(0, 100),    
+          buscarAgendamentoPorId(id),   
+        ]);
+
+        setAlunos(alunosPage.content);
+        setModalidades(modalidadesPage.content);
+
+        // Converter data ISO do backend em data + horário separados
+        const iso = agendamento.data;
+        const dataObj = new Date(iso);
+
+        let data = "";
+        let horario = "";
+
+        if (!Number.isNaN(dataObj.getTime())) {
+          const year = dataObj.getFullYear();
+          const month = String(dataObj.getMonth() + 1).padStart(2, "0");
+          const day = String(dataObj.getDate()).padStart(2, "0");
+          data = `${year}-${month}-${day}`;
+
+          const hours = String(dataObj.getHours()).padStart(2, "0");
+          const minutes = String(dataObj.getMinutes()).padStart(2, "0");
+          horario = `${hours}:${minutes}`;
+        } else if (iso.includes("T")) {
+          const [d, h] = iso.split("T");
+          data = d;
+          horario = h?.substring(0, 5) ?? "";
         }
+
+        setFormData({
+          alunoId: agendamento.alunoId,
+          modalidadeId: agendamento.modalidadeId,
+          data,
+          horario,
+        });
       } catch (error) {
-        setToast({ message: 'Erro ao carregar dados', type: 'error' });
         console.error(error);
+        setToast({ message: "Erro ao carregar dados do agendamento", type: "error" });
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    loadData();
+    carregarDados();
   }, [id]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!id) {
+      setToast({ message: "ID de agendamento inválido", type: "error" });
+      return;
+    }
+
     if (!formData.alunoId || !formData.modalidadeId || !formData.data || !formData.horario) {
-      setToast({ message: 'Preencha todos os campos!', type: 'error' });
+      setToast({ message: "Preencha todos os campos!", type: "error" });
       return;
     }
 
     try {
-      if (!id) throw new Error('ID inválido');
+      setIsLoading(true);
+      setToast(null);
 
-      const success = saveScheduleToLocalStorage({
-        id,
-        ...formData
+      const dataHoraIso = `${formData.data}T${formData.horario}:00`;
+
+      await atualizarAgendamento(id, {
+        data: dataHoraIso,
+        alunoId: formData.alunoId,
+        modalidadeId: formData.modalidadeId,
       });
 
-      if (success) {
-        setToast({ message: 'Agendamento atualizado com sucesso!', type: 'success' });
-        setTimeout(() => navigate('/Schedule'), 2000);
-      } else {
-        throw new Error('Falha ao salvar');
-      }
+      setToast({ message: "Agendamento atualizado com sucesso!", type: "success" });
+      setTimeout(() => navigate("/Schedule"), 1500);
     } catch (error) {
-      setToast({ message: 'Erro ao atualizar agendamento', type: 'error' });
       console.error(error);
+      const message =
+        error instanceof Error ? error.message : "Erro ao atualizar agendamento";
+      setToast({ message, type: "error" });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -108,9 +155,10 @@ export function EditSchedule() {
               value={formData.alunoId}
               onChange={handleChange}
               required
+              disabled={isLoading}
             >
               <option value="">Selecione um aluno</option>
-              {alunos.map(aluno => (
+              {alunos.map((aluno) => (
                 <option key={aluno.id} value={aluno.id}>
                   {aluno.nome}
                 </option>
@@ -124,9 +172,10 @@ export function EditSchedule() {
               value={formData.modalidadeId}
               onChange={handleChange}
               required
+              disabled={isLoading}
             >
               <option value="">Selecione uma modalidade</option>
-              {modalidades.map(mod => (
+              {modalidades.map((mod) => (
                 <option key={mod.id} value={mod.id}>
                   {mod.nome}
                 </option>
@@ -141,6 +190,7 @@ export function EditSchedule() {
               value={formData.data}
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
 
             <label htmlFor="horario">Horário</label>
@@ -151,11 +201,14 @@ export function EditSchedule() {
               value={formData.horario}
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
 
             <ButtonGroup className="multipleButtons">
-              <ButtonLabel type="submit">Salvar Alterações</ButtonLabel>
-              <ButtonLabel type="button" onClick={() => navigate('/Schedule')}>
+              <ButtonLabel type="submit" disabled={isLoading}>
+                {isLoading ? "Salvando..." : "Salvar Alterações"}
+              </ButtonLabel>
+              <ButtonLabel type="button" onClick={() => navigate("/Schedule")}>
                 Cancelar
               </ButtonLabel>
             </ButtonGroup>
