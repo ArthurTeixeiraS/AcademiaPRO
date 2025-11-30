@@ -102,7 +102,7 @@ export const Form = styled.form`
 export const FlexibleContentContainer = styled.div`
   position: fixed;
   left: 32rem;
-  top: 10rem;
+  top: 5rem;
   display: flex;
   align-items: top;
   width: 82%;

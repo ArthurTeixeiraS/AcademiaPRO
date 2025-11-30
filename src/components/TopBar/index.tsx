@@ -1,7 +1,6 @@
 // Barra superior simples com nome da página atual
-import { FiSearch, FiLock } from 'react-icons/fi';
-import { TopBarContainer, IconButton } from './styles';
-import { useNavigate } from 'react-router-dom';
+import { FiSearch } from 'react-icons/fi';
+import { TopBarContainer } from './styles';
 import { SearchInput } from '../utils/generic';
 
 interface Props {
@@ -9,23 +8,12 @@ interface Props {
 }
 
 export function TopBar({placeholder= "Pesquisar..."}: Props) {
-  const navigate = useNavigate();
-
-  const backToLogin = () => {
-      navigate('/')
-  }
   return (
     <TopBarContainer>
         {/* Wrapper = "Agrupador" */}
       <div className='searchWrapper'>
         <FiSearch size={20} />
         <SearchInput placeholder={placeholder} />
-      </div>
-
-      <div className='iconWrapper'>
-        <IconButton>
-          <FiLock size={20} onClick={backToLogin} />
-        </IconButton>
       </div>
     </TopBarContainer>
   );
