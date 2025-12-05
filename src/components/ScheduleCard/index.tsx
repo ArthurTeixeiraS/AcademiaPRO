@@ -106,11 +106,11 @@ export function ScheduleCard() {
           </CardInfo>
 
           <CardInfo>
-            <span>🏃‍➡️</span> Modalidade: {schedule.modalidadeId}
+            <span>🏃‍➡️</span> Modalidade: {schedule.modalidadeNome ?? "Não Informado."}
           </CardInfo>
 
           <CardInfo>
-            <span>👤</span> Aluno: {schedule.alunoId}
+            <span>👤</span> Aluno: {schedule.alunoNome ?? "Não Informado."}
           </CardInfo>
 
           <ButtonRow>

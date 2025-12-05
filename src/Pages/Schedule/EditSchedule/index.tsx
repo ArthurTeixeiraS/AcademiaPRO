@@ -12,14 +12,15 @@ import {
   buscarAgendamentoPorId,
   atualizarAgendamento,
 } from "../../../services/scheduleService";
+
 import type { AlunoResponse } from "../../../@types/customer";
 import type { ModalidadeResponse } from "../../../@types/modality";
 
 interface EditScheduleFormData {
   alunoId: string;
   modalidadeId: string;
-  data: string;    
-  horario: string; 
+  data: string;
+  horario: string;
 }
 
 export function EditSchedule() {
@@ -51,9 +52,9 @@ export function EditSchedule() {
         setToast(null);
 
         const [alunosPage, modalidadesPage, agendamento] = await Promise.all([
-          listarAlunos(0, 100),         
-          listarModalidades(0, 100),    
-          buscarAgendamentoPorId(id),   
+          listarAlunos(0, 100),
+          listarModalidades(0, 100),
+          buscarAgendamentoPorId(id),
         ]);
 
         setAlunos(alunosPage.content);
@@ -140,6 +141,17 @@ export function EditSchedule() {
     }
   };
 
+  if (isLoading && !formData.data && !formData.horario && !formData.alunoId && !formData.modalidadeId) {
+    return (
+      <>
+        <SideMenu />
+        <FlexibleContentContainer>
+          <div>Carregando...</div>
+        </FlexibleContentContainer>
+      </>
+    );
+  }
+
   return (
     <>
       <SideMenu />
@@ -208,7 +220,11 @@ export function EditSchedule() {
               <ButtonLabel type="submit" disabled={isLoading}>
                 {isLoading ? "Salvando..." : "Salvar Alterações"}
               </ButtonLabel>
-              <ButtonLabel type="button" onClick={() => navigate("/Schedule")}>
+              <ButtonLabel
+                type="button"
+                onClick={() => navigate("/Schedule")}
+                disabled={isLoading}
+              >
                 Cancelar
               </ButtonLabel>
             </ButtonGroup>
