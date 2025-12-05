@@ -89,7 +89,7 @@ export function Customers() {
 
       <MainContentContainer $repeatColumns={4}>
         <NewRegister
-          entityName="Aluno"
+          entityName="Cadastre um novo Aluno"
           createPath="/newcustomer"
           buttonText="Novo aluno"
         />

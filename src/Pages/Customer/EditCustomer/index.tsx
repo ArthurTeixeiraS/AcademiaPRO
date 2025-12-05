@@ -65,7 +65,16 @@ export function EditCustomer() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "idade") {
+      const numero = value ? Number(value) : null;
+      setFormData((prev) => ({
+        ...prev,
+        idade: numero !== null && !Number.isNaN(numero) ? numero : null,
+      }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handlePlanSelect = (plano: string) => {
@@ -80,9 +89,15 @@ export function EditCustomer() {
       return;
     }
 
-    if (!formData.nome || !formData.email || !formData.plano) {
+    if (
+      !formData.nome ||
+      !formData.email ||
+      !formData.plano ||
+      formData.idade === null ||
+      formData.idade <= 0
+    ) {
       setToast({
-        message: "Preencha todos os campos obrigatórios!",
+        message: "Preencha todos os campos obrigatórios com valores válidos!",
         type: "error",
       });
       return;
@@ -97,7 +112,7 @@ export function EditCustomer() {
         email: formData.email,
         telefone: formData.telefone,
         plano: formData.plano,
-        idade: formData.idade ?? null,
+        idade: formData.idade, // aqui já é number válido
       };
 
       await atualizarAluno(id, payload);
@@ -126,7 +141,7 @@ export function EditCustomer() {
     <>
       <SideMenu />
       <FlexibleContentContainer>
-        <RoundedCard width="45rem" height="50rem">
+        <RoundedCard width="45rem" height="55rem">
           <Form onSubmit={handleSubmit}>
             <h1>Editar Aluno</h1>
 
@@ -139,6 +154,19 @@ export function EditCustomer() {
               onChange={handleChange}
               required
               autoComplete="off"
+              disabled={isLoading}
+            />
+
+            <label htmlFor="idade">Idade</label>
+            <input
+              type="number"
+              name="idade"
+              id="idade"
+              min={1}
+              placeholder="Idade do aluno"
+              value={formData.idade ?? ""}
+              onChange={handleChange}
+              required
               disabled={isLoading}
             />
 

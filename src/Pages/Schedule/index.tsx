@@ -1,5 +1,4 @@
 import { ScheduleCard } from "../../components/ScheduleCard";
-import {TopBar} from "../../components/TopBar";
 import { SideMenu } from "../../components/SideMenu";
 import { MainContentContainer } from "../../components/utils/generic";
 import { NewRegister } from "../../components/NewRegister";
@@ -7,10 +6,9 @@ import { NewRegister } from "../../components/NewRegister";
 export function Schedule() {
     return(
         <>
-        <TopBar placeholder="Pesquisar por agendamentos"></TopBar>
         <SideMenu></SideMenu>
           <MainContentContainer $repeatColumns={4}> 
-              <NewRegister entityName="Agendamentos" createPath="/newschedule" buttonText="Novo agendamento"/>
+              <NewRegister entityName="Cadastre um novo Agendamento" createPath="/newschedule" buttonText="Novo agendamento"/>
               <ScheduleCard></ScheduleCard>
           </MainContentContainer>
         </>

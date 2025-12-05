@@ -19,13 +19,13 @@ export function NewRegister({
   createPath,
   buttonText,
   cardWidth = "30rem",     
-  cardHeight = "22rem",
+  cardHeight = "23rem",
 }: NewRegisterProps) {
   return (
     <RoundedCard width={cardWidth} height={cardHeight} isLarge={false}>
       <div className="notFoundRegister">
         <h2>Não encontrou?</h2>
-        <CardInfo>Cadastre um novo {entityName.toLowerCase()}!</CardInfo>
+        <CardInfo>{entityName}!</CardInfo>
         <Link to={createPath}>
           <ButtonLabel className="margin">{buttonText}</ButtonLabel>
         </Link>

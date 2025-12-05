@@ -1,114 +1,80 @@
-
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { RoundedCard } from "../RoundedCard";
 import { ButtonLabel, ButtonRow } from "../utils/styleButton";
 import { CardInfo } from "../utils/CardStyles";
-import { getModalitiesFromLocalStorage, removeModalityFromLocalStorage } from "../utils/LocalStorage/ModalityUtils";
-import { AlertConfirm } from "../Alerts/AlertConfirm";
-import { AlertToast } from "../Alerts/AlertToast";
-import type { Modality } from "../../@types/modality";
+import type { ModalidadeResponse } from "../../@types/modality";
 
+type ModalityCardProps = {
+  modalities: ModalidadeResponse[];
+  onDelete: (id: string) => void;
+};
 
-//componente principal
-export function ModalityCard() {
-  const [modalities, setModalities] = useState<Modality[]>([]);
-  const [showConfirm, setShowConfirm] = useState(false);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
+export function ModalityCard({ modalities, onDelete }: ModalityCardProps) {
   const navigate = useNavigate();
 
-
-  
-  // Carrega as modalidades salvas no localStorage
-  useEffect(() => {
-    setModalities(getModalitiesFromLocalStorage());
-  }, []);
-
-  // ───── HANDLERS DE EXCLUSÃO ─────
-  const confirmDelete = (id: string) => {
-    setSelectedId(id);
-    setShowConfirm(true);
+  const formatDescricao = (descricao: string | null): string => {
+    if (!descricao) return "-";
+    return descricao.length > 80
+      ? `${descricao.substring(0, 80)}...`
+      : descricao;
   };
 
 
+  const formatDuracao = (duracao: number | null): string =>
+    duracao != null && !Number.isNaN(duracao)
+      ? `${duracao} min`
+      : "-";
 
-  const handleDelete = () => {
-    if (!selectedId) return;
+  const formatCapacidade = (capacidade: number | null): string =>
+    capacidade != null && !Number.isNaN(capacidade)
+      ? `${capacidade} pessoa(s)`
+      : "-";
 
-    const success = removeModalityFromLocalStorage(selectedId);
+  if (!modalities || modalities.length === 0) {
+    return <p>Nenhuma modalidade cadastrada.</p>;
+  }
 
-    if (success) {
-      setToast({ message: "Modalidade removida com sucesso", type: "success" });
-      setModalities((prev) => prev.filter((mod) => mod.id !== selectedId));
-    } else {
-      setToast({ message: "Erro ao remover modalidade", type: "error" });
-    }
-
-    setShowConfirm(false);
-    setSelectedId(null);
-  };
-
-
-   // Formata o público-alvo para exibição
-  const formatPublico = (publico: string): string => {
-    switch (publico.toLowerCase()) {
-      case "infantil":
-        return "Infantil";
-      case "adulto":
-        return "Jovem-Adulto";
-      default:
-        return publico;
-    }
-  };
-
-
-
-  //render
   return (
     <>
       {modalities.map((modality) => (
-        <RoundedCard key={modality.id} width="32rem" height="23rem" isLarge={false}>
+        <RoundedCard
+          key={modality.id}
+          width="32rem"
+          height="23rem"
+          isLarge={false}
+        >
           <h2>{modality.nome}</h2>
+
           <CardInfo>
-            <span>✏️</span> 
-            <p
-                className="card-text"
-                title={modality.descricao}
-            >
-                {modality.descricao.length > 50 
-                ? `${modality.descricao.substring(0, 50)}...` 
-                : modality.descricao
-                }
+            <span>✏️</span>
+            <p className="card-text" title={modality.descricao ?? undefined}>
+              {formatDescricao(modality.descricao)}
             </p>
           </CardInfo>
+
           <CardInfo>
-            <span>👥</span> {modality.capacidade} Pessoa(as)
+            <span>⏱</span> Duração: {formatDuracao(modality.duracao)}
           </CardInfo>
-          <CardInfo><span>📌</span> Público: {formatPublico(modality.publicoAlvo)}</CardInfo>
+
+          <CardInfo>
+            <span>👥</span> Capacidade: {formatCapacidade(modality.capacidade)}
+          </CardInfo>
 
           <ButtonRow>
-            <ButtonLabel onClick={() => navigate(`/EditModality/${modality.id}`)}>Editar</ButtonLabel>
-            <ButtonLabel $variant="danger" onClick={() => confirmDelete(modality.id)}>Excluir</ButtonLabel>
+            <ButtonLabel
+              onClick={() => navigate(`/EditModality/${modality.id}`)}
+            >
+              Editar
+            </ButtonLabel>
+            <ButtonLabel
+              $variant="danger"
+              onClick={() => onDelete(modality.id)}
+            >
+              Excluir
+            </ButtonLabel>
           </ButtonRow>
         </RoundedCard>
       ))}
-
-      {showConfirm && (
-        <AlertConfirm
-          message="Tem certeza que deseja excluir esta Modalidade?"
-          onConfirm={handleDelete}
-          onCancel={() => setShowConfirm(false)}
-        />
-      )}
-
-      {toast && (
-        <AlertToast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )}
     </>
   );
 }
